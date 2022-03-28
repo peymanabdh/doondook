@@ -1,0 +1,42 @@
+<?php 
+     $latest = new WP_Query( array (
+        'post_type' => 'service',
+        'fields' => 'ids'
+    ));
+    // var_dump($latest->posts);
+    if ( $latest->have_posts() ) {
+        while ( $latest->have_posts() ) {
+            $latest->the_post();     
+                    
+            echo '<li>' . get_the_ID() . '</li>';
+        }
+    }
+?>
+////////////////////////////////////////////////////////
+<link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+    ////////////////////////////////////////////////////////////////
+<?php 
+     $latest = new WP_Query( array (
+        'post_type' => 'service',
+        'fields' => 'ids'
+    ));
+    // var_dump($latest->posts);
+    if ( $latest->have_posts() ) {
+        while ( $latest->have_posts() ) {
+            $latest->the_post();     
+                    
+            echo '<select class="js-example-basic-multiple" name="states[]" multiple="multiple">
+            <option value="AL">'.get_the_ID().'</option>
+            </select>';
+        }
+    }
+?>
+//////////////////////////////////////
+$(document).ready(function() {
+$('.js-example-basic-multiple').select2();
+});
+/////////////////////////////////////////////
+[post_date] => 2022-03-19 16:31:48 [post_date_gmt] => 2022-03-19 13:01:48 [post_content] => serivice6 Excerpts are optional hand-crafted summaries of your content that can be used in your theme. Learn more about manual excerpts. [post_title] => serivice6 [post_excerpt] => [post_status] => publish [comment_status] => open [ping_status] => closed [post_password] => [post_name] => serivice6 [to_ping] => [pinged] => [post_modified] => 2022-03-19 17:09:44 [post_modified_gmt] => 2022-03-19 13:39:44 [post_content_filtered] => [post_parent] => 0 [guid] => http://localhost:8080/wordpress/doondook/?post_type=service&p=11295 [menu_order] => 0 [post_type] => service [post_mime_type] => [comment_count] => 0 [filter] 
+ <?php var_dump($post) ?>
+ j F Y
