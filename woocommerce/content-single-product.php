@@ -18,9 +18,12 @@ $variations = [];
 ?>
 <div class="page-wrapper single-product-wrapper">
     <h1><?php the_title(); ?></h1>
-<div class="page-content single-product-content">
+    <div class="page-content single-product-content">
         <div class="main-content">
+
+
             <!-- desktop slider -->
+
             <div class="card hide-in-mobile">
                 <div class="top-slider">
                     <div class="top-slider-view">
@@ -150,14 +153,6 @@ $variations = [];
                                         }
                                     }
                                     ?>
-<!--                                    <a href="#">tag1</a>-->
-<!--                                    <a href="#">tag2</a>-->
-<!--                                    <a href="#">tag3</a>-->
-<!--                                    <a href="#">tag4</a>-->
-<!--                                    <a href="#">tag1</a>-->
-<!--                                    <a href="#">tag2</a>-->
-<!--                                    <a href="#">tag3</a>-->
-<!--                                    <a href="#">tag4</a>-->
                                 </span>
                             </div>
                         </div>
@@ -221,7 +216,7 @@ $variations = [];
 
             <!-- services -->
 
-            <div class="card game-services-box pdng hide-in-tablet hide-in-mobile">
+              <div class="card game-services-box pdng hide-in-tablet hide-in-mobile">
                 <div class="description-title">
                     <div class="description-title-image" style="background-image: url(<?php echo theme_uri('assets/image/single-product/services.svg') ?>);"></div>
                     <div class="description-title-text">
@@ -231,7 +226,7 @@ $variations = [];
 
                 <div class="services-box">
 
-                        <?php
+                <?php
                         $feild=get_field('sercice_id_option','option');
                         $val=implode(',',$feild);
                         $attachments = get_posts( array(
@@ -240,18 +235,21 @@ $variations = [];
                             'include'   => $val,
                         ) );
                         ?>
-                        <?php if ( $attachments ) {
+
+                        <?php if ($attachments ) {
                             foreach ( $attachments as $post ) { 
                                 $post_title =$post->the_title;
-                                ?>
-                            <a href="<?php the_permalink($post->ID); ?>">    
+                               
+                        ?>
+                             
                             <div class="game-single-service">
                                 <div class="game-service-icon" style="background-image: url(<?php echo get_the_post_thumbnail_url() ?>)"></div>
                                 <div class="game-service">
-                                    <h4 class="game-service-title"> <?php echo $post->post_title; ?> </h4>
-                                    <p class="game-service-content">
-                                    <?php echo $post->post_content; ?>
+                                <a href="<?php the_permalink($post->ID); ?>"> <h4 class="game-service-title"> <?php echo $post->post_title; ?> </h4>  </a>
+                                <a href="<?php the_permalink($post->ID); ?>"><p class="game-service-content">
+                                    <?php echo $post->post_excerpt; ?>
                                     </p>
+                                    </a>
                                     <div class="game-service-btns">
                                         <button class="small-btn blue">Learn More</button>
                                         <button class="small-btn yellow">Contact Us</button>
@@ -259,7 +257,7 @@ $variations = [];
                                 </div>
                                
                             </div>
-                            </a>
+                           
                             <?php } ?>
                             <?php wp_reset_postdata(); ?>
                             <?php } ?>
@@ -337,64 +335,45 @@ $variations = [];
                     </div>
                 </div>
 
+               
                 <div class="services-box">
-                    <div class="game-single-service">
-                        <div class="game-service-icon" style="background-image: url(<?php echo theme_uri('assets/image/single-product/reskin.svg') ?>)"></div>
-                        <div class="game-service">
-                            <h4 class="game-service-title">Game Reskin</h4>
-                            <p class="game-service-content">
-                            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
-                            </p>
-                            <div class="game-service-btns">
-                                <button class="small-btn blue">Learn More</button>
-                                <button class="small-btn yellow">Contact Us</button>
+
+                <?php
+                        $feild=get_field('sercice_id_option','option');
+                        $val=implode(',',$feild);
+                        $attachments = get_posts( array(
+                            'post_type'      => 'service',
+                            'posts_per_page'=>4,
+                            'include'   => $val,
+                        ) );
+                        ?>
+
+                        <?php if ($attachments ) {
+                            foreach ( $attachments as $post ) { 
+                                $post_title =$post->the_title;
+                               
+                        ?>
+                             
+                            <div class="game-single-service">
+                                <div class="game-service-icon" style="background-image: url(<?php echo get_the_post_thumbnail_url() ?>)"></div>
+                                <div class="game-service">
+                                <a href="<?php the_permalink($post->ID); ?>"> <h4 class="game-service-title"> <?php echo $post->post_title; ?> </h4>  </a>
+                                <a href="<?php the_permalink($post->ID); ?>"><p class="game-service-content">
+                                    <?php echo $post->post_excerpt; ?>
+                                    </p>
+                                    </a>
+                                    <div class="game-service-btns">
+                                        <button class="small-btn blue">Learn More</button>
+                                        <button class="small-btn yellow">Contact Us</button>
+                                    </div>
+                                </div>
+                               
                             </div>
-                        </div>
-                    </div>
-
-                    <div class="game-single-service">
-                        <div class="game-service-icon" style="background-image: url(<?php echo theme_uri('assets/image/single-product/reskin.svg') ?>)"></div>
-                        <div class="game-service">
-                            <h4 class="game-service-title">Game Reskin</h4>
-                            <p class="game-service-content">
-                            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
-                            </p>
-                            <div class="game-service-btns">
-                                <button class="small-btn blue">Learn More</button>
-                                <button class="small-btn yellow">Contact Us</button>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="game-single-service">
-                        <div class="game-service-icon" style="background-image: url(<?php echo theme_uri('assets/image/single-product/reskin.svg') ?>)"></div>
-                        <div class="game-service">
-                            <h4 class="game-service-title">Game Reskin</h4>
-                            <p class="game-service-content">
-                            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
-                            </p>
-                            <div class="game-service-btns">
-                                <button class="small-btn blue">Learn More</button>
-                                <button class="small-btn yellow">Contact Us</button>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="game-single-service">
-                        <div class="game-service-icon" style="background-image: url(<?php echo theme_uri('assets/image/single-product/reskin.svg') ?>)"></div>
-                        <div class="game-service">
-                            <h4 class="game-service-title">Game Reskin</h4>
-                            <p class="game-service-content">
-                            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
-                            </p>
-                            <div class="game-service-btns">
-                                <button class="small-btn blue">Learn More</button>
-                                <button class="small-btn yellow">Contact Us</button>
-                            </div>
-                        </div>
-                    </div>
-
-
+                           
+                            <?php } ?>
+                            <?php wp_reset_postdata(); ?>
+                            <?php } ?>
+                                    
                 </div>
 
             </div>
@@ -409,7 +388,11 @@ $variations = [];
     <hr class="hr-top-similar">
 
     <div class="similar-games">
-        <h3>Similar Games</h3>
+        <div class="header-s-a-link">
+            <h3>Similar Games</h3>
+            <a href="#">See All ></a>
+        </div>
+        
         <div class="all-game-box">
 
         <?php

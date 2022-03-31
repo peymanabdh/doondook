@@ -30,6 +30,19 @@ html{
     border: 0;
 }
 
+.navigation-bar{
+    height: 50px;
+    width: 100%;
+    background: linear-gradient(90.04deg, #5156DF 0%, #7B4FEC 100%);
+    box-shadow: 0px 2px 1px rgba(0, 0, 0, 0.04);
+    .navigation-menu{
+        width: 1240px;
+        height: 50px;
+        background-color: red;
+        margin: auto;
+    }
+}
+
 body, h1, h2, h3, h4, h5, h6, p, span, a, ul, ol, li, input, textarea, label, button{
     font-family: Lexend;
     color: @color_text;
@@ -480,6 +493,8 @@ body{
                     }
                     a{
                         color: #000;
+                        display: inline-block;
+                        margin-left: 3px;
                     }
                 }
             }
@@ -701,7 +716,7 @@ body{
             background: #26B17F;
             border-radius: 7px;
             color: #fff;
-            padding: 4px;
+            padding: 4px 6px;
             display: inline-block;
             margin-left: 10px;
             @media screen and (max-width: @desktop_size){
@@ -871,6 +886,9 @@ body{
                             text-align: center;
                         }
                     }
+                    a{
+                        text-decoration: none;
+                    }
                 }
             }
 
@@ -887,7 +905,7 @@ body{
     }
 
     .hr-top-similar{
-        background: #dcdcdc;
+        background: #f2f2f2;
         border-radius: 33px;
         width: 100%;
         border-radius: 3px;
@@ -908,17 +926,7 @@ body{
         @media screen and (max-width: @tablet_size) {
             margin-top: 0;
         }
-        >h3{
-            margin-bottom: 37px;
-            font-weight: bold;
-            font-size: 42px;
-            line-height: 52px;
-            @media screen and (max-width: @tablet_size) {
-                font-size: 32px;
-                line-height: 40px;
-                margin: 0 10px 36px;
-            }
-        }
+        
     }
     .all-game-box{
 
@@ -1146,14 +1154,14 @@ body{
                 -webkit-box-orient: vertical;
                 overflow: hidden;
                 margin-bottom: 6px;
-                height: 42px;
+                max-height: 42px;
                 @media screen and (min-width: @tablet_size) and (max-width: @desktop_size) {
                     margin-bottom: 0;
                 }
                 @media screen and (max-width: @tablet_size){
                     font-size: 20px;
                     line-height: 25px;
-                    height: 45px;
+                    max-height: 45px;
                 }
             }
             p{
@@ -1179,8 +1187,13 @@ body{
             }
             .price-area{
                 margin-bottom: 0;
+                position: absolute;
+                right: 12px;
+                bottom: 12px;
                 @media screen and (min-width: @tablet_size) and (max-width: @desktop_size) {
                     display: block;
+                    right: 10px;
+                    bottom: 10px;
                 }
                 .price{
                     padding: 0 12px;
@@ -1221,7 +1234,31 @@ body{
         }
     } 
 }
-
+.header-s-a-link{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 37px;
+    @media screen and (max-width: @tablet_size) {
+        margin: 0 10px 36px;
+    }
+    >h3{
+        font-weight: bold;
+        font-size: 42px;
+        line-height: 52px;
+        @media screen and (max-width: @tablet_size) {
+            font-size: 32px;
+            line-height: 40px;
+            // margin: 0 10px 36px;
+        }
+    }
+    a{
+        font-weight: 400;
+        font-size: 15px;
+        line-height: 19px;
+        text-decoration: none;
+    }
+}
 @media screen and (min-width: @desktop_size) {
     .single-loop-game:nth-child(4n){
         margin-right: 0;

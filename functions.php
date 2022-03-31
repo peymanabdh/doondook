@@ -175,12 +175,17 @@ $latest = new WP_Query( array (
     'fields' => 'ids'
 ));
 // $myid=$latest->get_the_ID();
-// var_dump($latest->posts);
+// echo '<pre>';
+// var_dump($latest);
+// echo '</pre>';
 if ( $latest->have_posts() ) {
     while ( $latest->have_posts() ) {
         $latest->the_post();     
         $myidarr[]=get_the_ID();
-        
+        // $titles=get_the_tags();
+        // foreach($titles as $title){
+        //    $argg[]=$title->name;
+        // }       
     }
 }
 if( function_exists('acf_add_local_field_group') ):
@@ -235,7 +240,7 @@ if( function_exists('acf_add_local_field_group') ):
             'post_type'      => 'popup',
         ) );
         if ( $attachments ) {
-                echo get_the_modified_date('j F Y', 11263 );
+                echo "last update:".' '.get_the_modified_date('j F Y', 11263 );
         }        
                 
     }

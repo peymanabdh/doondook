@@ -12,83 +12,33 @@
                 <div class="important-text-box yellow">A notice that clients have to know about the service / article.</div>
 
             </div>
-
-            <div class="card service-faq">
-                <div class="description-title">
-                    <div class="description-title-image" style="background-image: url(<?php echo theme_uri('assets/image/services.png') ?>);"></div>
-                    <div class="description-title-text">
-                        <h2>Frequently Asked Questions</h2>
-                    </div>
-                </div>
-                <div class="faq-box">
-                    <!-- first question must be open and other must be close -->
-                    <!-- classes => [close, open] -->
-                    <div class="single-faq open">
-                        <div class="icon-box">
-                            <span class="faq-collapse-icon"></span>
-                        </div>
-                        <div class="text-box">
-                            <div class="question">
-                                <h4>First Question?</h4>
-                            </div>
-                            <div class="answer">
-                                <p>
-                                It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source.
-                                </p>
-                            </div>
-
+        </div>
+        <div class="sidebar-content">
+            <div class="card">
+                <div class="contact-form-box">
+                    <div class="description-title">
+                        <?php $contact_us_icon=get_post_meta(get_the_ID(),'contact_form_icon',true); ?>
+                        <div class="description-title-image" style="background-image: url(<?php echo $contact_us_icon; ?>);"></div>
+                        <div class="description-title-text">
+                        <?php $contact_us_title=get_post_meta(get_the_ID(),'contact_form_title',true); ?>
+                            <h2><?php echo $contact_us_title; ?></h2>
                         </div>
                     </div>
-
-                    <!-- classes => [close, open] -->
-                    <div class="single-faq close">
-                        <div class="icon-box">
-                            <span class="faq-collapse-icon"></span>
-                        </div>
-                        <div class="text-box">
-                            <div class="question">
-                                <h4>Do I Have Another Question?</h4>
-                            </div>
-                            <div class="answer">
-                                <p>
-                                Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source.
-                                </p>
-                            </div>
-
-                        </div>
+                    <div class="contact-form">
+                        <?php echo do_shortcode('[contact-form-7 id="11279" title="Untitled"]') ?>
                     </div>
-                    <!-- classes => [close, open] -->
-                    <div class="single-faq close">
-                        <div class="icon-box">
-                            <span class="faq-collapse-icon"></span>
+                    <div class="product-badges">
+                        <div class="single-badge">
+                            <div class="icon quality"></div>
+                            <div class="title">Quality Checked</div>
                         </div>
-                        <div class="text-box">
-                            <div class="question">
-                                <h4>Do I Have Another Question?</h4>
-                            </div>
-                            <div class="answer">
-                                <p>
-                                Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source.
-                                </p>
-                            </div>
-
+                        <div class="single-badge">
+                            <div class="icon device"></div>
+                            <div class="title">Run on All Devices</div>
                         </div>
-                    </div>
-                    <!-- classes => [close, open] -->
-                    <div class="single-faq close">
-                        <div class="icon-box">
-                            <span class="faq-collapse-icon"></span>
-                        </div>
-                        <div class="text-box">
-                            <div class="question">
-                                <h4>Do I Have Another Question?</h4>
-                            </div>
-                            <div class="answer">
-                                <p>
-                                Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source.
-                                </p>
-                            </div>
-
+                        <div class="single-badge">
+                            <div class="icon support"></div>
+                            <div class="title">6 Months Support</div>
                         </div>
                     </div>
                 </div>
