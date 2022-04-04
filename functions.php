@@ -316,3 +316,11 @@ if( function_exists('acf_add_local_field_group') ):
     add_shortcode( 'important_yellow', 'important_sentence_yellow' );
 
 /////////////////////////////////////////////////////////////////////////////shortcodes
+
+add_action( 'wp', 'bbloomer_remove_sidebar_product_pages' );
+ 
+function bbloomer_remove_sidebar_product_pages() {
+if ( is_product() ) {
+remove_action( 'woocommerce_sidebar', 'woocommerce_get_sidebar', 10 );
+}
+}
