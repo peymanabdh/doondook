@@ -44,13 +44,29 @@ $('.top-slider-view-game-overlay').on('click', function(){ $(this).css('display'
 $('.single-faq').on('click', function(){
     // console.log()
     let t = $(this)
-    // $('.single-faq').removeClass('open').addClass('close')
-    if(t.hasClass('close')){
+    let type = 'open'
+    if(t.hasClass('close'))
+        type = 'close'
+    
+    $('.single-faq').removeClass('open').addClass('close')
+    if(type == 'close'){
         t.removeClass('close')
         t.addClass('open')
     }
-    else if(t.hasClass('open')){
+    else{
         t.removeClass('open')
         t.addClass('close')
     }
+})
+
+$('.mobile-menu-icon').on('click', function(){
+    let e = $('.mobile-menu-icon>span')
+    e.toggleClass('open')
+    e.toggleClass('close')
+    $('.mobile-menu-items').toggleClass('active')
+})
+$('.mobile-menu-items>.services>span>a').on('click', function(){
+    console.log($('.mobile-menu-items .sub-menu-items'))
+    $('.mobile-menu-items .sub-menu-items').toggleClass('open')
+    $('.mobile-menu-items .services').toggleClass('open')
 })
