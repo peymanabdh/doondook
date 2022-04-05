@@ -40,3 +40,15 @@ $('.js-example-basic-multiple').select2();
 [post_date] => 2022-03-19 16:31:48 [post_date_gmt] => 2022-03-19 13:01:48 [post_content] => serivice6 Excerpts are optional hand-crafted summaries of your content that can be used in your theme. Learn more about manual excerpts. [post_title] => serivice6 [post_excerpt] => [post_status] => publish [comment_status] => open [ping_status] => closed [post_password] => [post_name] => serivice6 [to_ping] => [pinged] => [post_modified] => 2022-03-19 17:09:44 [post_modified_gmt] => 2022-03-19 13:39:44 [post_content_filtered] => [post_parent] => 0 [guid] => http://localhost:8080/wordpress/doondook/?post_type=service&p=11295 [menu_order] => 0 [post_type] => service [post_mime_type] => [comment_count] => 0 [filter] 
  <?php var_dump($post) ?>
  j F Y
+ /////////////////////////////////////////
+ <header class="woocommerce-products-header">
+	<?php if ( apply_filters( 'woocommerce_show_page_title', true ) ) : ?>
+		<h1 class="woocommerce-products-header__title page-title"><?php woocommerce_page_title(); ?></h1>
+	<?php endif; ?>
+
+	<?php
+//	do_action( 'woocommerce_archive_description' );
+echo '     <div class="custom">gggggggggggggggg</div>';
+	?>
+</header>
+//////////////////////////////////////////////////////////////

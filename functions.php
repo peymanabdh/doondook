@@ -192,12 +192,53 @@ if( function_exists('acf_add_local_field_group') ):
 
     acf_add_local_field_group(array (
         'key' => 'group_1',
-        'title' => 'My Group',
+        'title' => 'select product page services for display',
         'fields' => array (
             array (
                 'key' => 'sercice_id_option',
-                'label' => 'sercice id',
+                'label' => 'sercice ids',
                 'name' => 'sercice_id_title',
+                'type' => 'select',
+                'instructions' => '',
+                'required' => 0,
+                'wrapper' => [
+                    'width' => '',
+                    'class' => '',
+                    'id' => '',
+                ],
+                'choices' => $myidarr,
+                'default_value' => [],
+                'value'=>[],
+                'multiple' => 1,
+                'return_format' => 'label',
+                'placeholder' => '',
+            )
+        ),
+        'location' => array (
+            array (
+                array (
+                    'param' => 'options_page',
+                    'operator' => '==',
+                    'value' => 'theme-general-settings',
+                ),
+            ),
+        ),
+        'menu_order' => 0,
+        'position' => 'normal',
+        'style' => 'default',
+        'label_placement' => 'top',
+        'instruction_placement' => 'label',
+        'hide_on_screen' => '',
+    ));
+    //home page
+    acf_add_local_field_group(array (
+        'key' => 'group_2',
+        'title' => 'select home page services for display',
+        'fields' => array (
+            array (
+                'key' => 'sercice_id_option_home_page',
+                'label' => 'sercice ids',
+                'name' => 'sercice_id_title_home_page',
                 'type' => 'select',
                 'instructions' => '',
                 'required' => 0,
@@ -275,3 +316,11 @@ if( function_exists('acf_add_local_field_group') ):
     add_shortcode( 'important_yellow', 'important_sentence_yellow' );
 
 /////////////////////////////////////////////////////////////////////////////shortcodes
+
+add_action( 'wp', 'bbloomer_remove_sidebar_product_pages' );
+ 
+function bbloomer_remove_sidebar_product_pages() {
+if ( is_product() ) {
+remove_action( 'woocommerce_sidebar', 'woocommerce_get_sidebar', 10 );
+}
+}
