@@ -32,13 +32,13 @@ html{
 header{
     .mobile-menu-items{
         width: 100%;
-        height: 100%;
+        min-height: 100vh;
         background: #fff;
-        position: absolute;
+        // position: absolute;
         top: 0;
         z-index: 1;
-        overflow-y: scroll;
-        padding-top: 50px;
+        // overflow-y: scroll;
+        // padding-top: 50px;
         display: none;
         >.menu-item{
             span{ 
@@ -208,6 +208,9 @@ header{
                         display: inline-block;
                         margin-left: 4px;
                         background-image: url(assets/image/nav-drop-down-icon.png);
+                        background-position: center;
+                        background-size: contain;
+                        background-repeat: no-repeat;
                         filter: brightness(0) invert(1);
                     }
                 }
