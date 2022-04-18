@@ -4,7 +4,7 @@ add_action( 'cmb2_admin_init', 'Doondook_register_theme_options_metabox' );
 
 function Doondook_register_theme_options_metabox() {
 
-    $alloptions = new_cmb2_box( array(
+$alloptions = new_cmb2_box( array(
         'id'           => 'Doondook_option_metabox',
         'title'        => esc_html__( 'Doon-settings', 'Doondook' ),
         'object_types' => array( 'options-page' ),
@@ -49,9 +49,58 @@ $alloptions->add_group_field( $general, array(
     'attributes' => array( 'placeholder' => __( 'please inser css class from palugin on this input' ) ),
 ) );
 
-
-
-
+////////////////////////////////////////////////////////
+$general = $alloptions->add_field( array(
+    'id'          => 'Doondook_general_insert_category',
+    'type'        => 'group',
+    'repeatable'  => false,
+    'options'     => array(
+        'group_title'       => __( 'Doondook_general_insert_category' ),
+        // 'add_button' => __( 'add' ),
+        // 'remove_button' => __( 'remove' ),
+        'sortable' => true,
+        'closed' => true, 
+    ),
+) );
+$alloptions->add_group_field( $general, array(
+    'name' => 'Doondook_general_inser_categorys',
+    'id'   => 'Doondook_general_inser_categorys',
+    'type' => 'text',
+    'attributes' => array( 'placeholder' => __( 'please insert categoty ass test,test2,.....' ) ),
+) );
+/////////////////////////////////////////////////////////////////
+$general = $alloptions->add_field( array(
+    'id'          => 'Doondook_general_comments',
+    'type'        => 'group',
+    'repeatable'  => true,
+    'options'     => array(
+        'group_title'       => __( 'users comments' ),
+        // 'add_button' => __( 'add' ),
+        // 'remove_button' => __( 'remove' ),
+        'sortable' => true,
+        'closed' => true,
+    ),
+) );
+$alloptions->add_group_field( $general, array(
+    'name' => 'users comments content',
+    'id'   => 'users_comments_content',
+    'type' => 'text',
+) );
+$alloptions->add_group_field( $general, array(
+    'name' => 'users comments username',
+    'id'   => 'users_comments_usernames',
+    'type' => 'text',
+) );
+$alloptions->add_group_field( $general, array(
+    'name' => 'users comments username iamge',
+    'id'   => 'users_comments_usernames_image',
+    'type' => 'file',
+) );
+$alloptions->add_group_field( $general, array(
+    'name' => 'users comments username type',
+    'id'   => 'users_comments_usernames_type',
+    'type' => 'text',
+) );
 
 
 

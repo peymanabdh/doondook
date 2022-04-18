@@ -341,15 +341,22 @@ $variations = [];
                 <?php
                         $feild=get_field('sercice_id_option','option');
                         $val=implode(',',$feild);
-                        $attachments = get_posts( array(
-                            'post_type'      => 'service',
-                            'posts_per_page'=>4,
-                            'include'   => $val,
-                        ) );
+                        // $attachments = get_posts( array(
+                        //     'post_type'      => 'service',
+                        //     'include'   => $val,
+                        // ) );
+                        $args = array(
+                            'post_type' => array( 'service' ),
+                            'posts_per_page'  => 4,
+                            'meta_key' => 'sercice_id_option',
+                            'orderby' => 'meta_value',
+                            'order'	=> 'DESC'
+                        );
+                        $att=new WP_Query($args);
                         ?>
 
-                        <?php if ($attachments ) {
-                            foreach ( $attachments as $post ) { 
+                        <?php if ($att ) {
+                            foreach ( $att as $post ) { 
                                 $post_title =$post->the_title;
                                
                         ?>
