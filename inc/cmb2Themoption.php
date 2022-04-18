@@ -55,7 +55,7 @@ $general = $alloptions->add_field( array(
     'type'        => 'group',
     'repeatable'  => false,
     'options'     => array(
-        'group_title'       => __( 'Doondook_general_insert_category' ),
+        'group_title'       => __( 'insert catgory for display on home page' ),
         // 'add_button' => __( 'add' ),
         // 'remove_button' => __( 'remove' ),
         'sortable' => true,
@@ -63,7 +63,7 @@ $general = $alloptions->add_field( array(
     ),
 ) );
 $alloptions->add_group_field( $general, array(
-    'name' => 'Doondook_general_inser_categorys',
+    'name' => 'insert catgory for display on home page',
     'id'   => 'Doondook_general_inser_categorys',
     'type' => 'text',
     'attributes' => array( 'placeholder' => __( 'please insert categoty ass test,test2,.....' ) ),

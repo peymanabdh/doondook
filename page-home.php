@@ -17,6 +17,7 @@
                   $home_page_present_settings_icon=get_field('home_page_present_settings_icon');
                   $home_page_present_settings_title=get_field('home_page_present_settings_title');
                   $home_page_present_settings_first_paragraph=get_field('home_page_present_settings_first_paragraph');
+                  $home_page_present_settings_second_paragraph=get_field('home_page_present_settings_second_paragraph');
                   $home_page_service_icon=get_field('home_page_service_icon');
                   $home_page_service_title=get_field('home_page_service_title');
                 ?>
