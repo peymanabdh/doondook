@@ -100,7 +100,7 @@ $(document).ready(function(){
         merge: true,
         items: 2,
         responsive:{
-            360:{
+            0:{
                 autoWidth:true,
                 mergeFit:true
             },
