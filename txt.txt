@@ -74,3 +74,80 @@ echo '     <div class="custom">gggggggggggggggg</div>';
      foreach ($all_categories as $item){
          $catlist[]=$item->name;
      }
+     //////////////////////////////////////////////////////////////////////////////
+     /////////////////////////////////////////////////////////////////category selection in home page
+$general = $alloptions->add_field( array(
+    'id'          => 'category_selection_home_page',
+    'type'        => 'group',
+    'repeatable'  => true,
+    'options'     => array(
+        'group_title'       => __( 'category selection in home page' ),
+        // 'add_button' => __( 'add' ),
+        // 'remove_button' => __( 'remove' ),
+        'sortable' => true,
+        'closed' => true,
+    ),
+) );
+$alloptions->add_group_field( $general, array(
+    'name' => 'category_selection_title',
+    'id'   => 'category_selection_title',
+    'type' => 'text',
+) );
+$alloptions->add_group_field( $general, array(
+    'name' => 'category_selection_url_link',
+    'id'   => 'category_selection_url_link',
+    'type' => 'text',
+) );
+$alloptions->add_group_field( $general, array(
+    'name' => 'category_selection_category_type',
+    'id'   => 'category_selection_category_type',
+    'type' => 'text',
+) );
+/////////////////////////////////
+ <div class="game-loop tablet-mobile-carousel">
+
+        <?php $category_selection =pishro_get_option('category_selection_home_page'); ?>
+        <?php if($category_selection){ ?>
+        <?php foreach($category_selection as $item): ?>  
+
+
+            <div class="header-s-a-link">
+                <h3><?php echo $item['category_selection_title']; ?></h3>
+                <a href="<?php echo $item['category_selection_url_link']; ?>">See All ></a>
+            </div>
+            <div class="all-game-box">
+
+            <?php
+            echo do_shortcode('[products limit="4" columns="4" category="'.$item['category_selection_category_type'].'" orderby="id" order="DESC" visibility="visible"]');
+               //echo do_shortcode( '[product_category per_page="4" orderby="menu_order title" order="ASC" category="Casino"]' );
+               //echo do_shortcode( '[products limit="4" columns="4" orderby="id" order="DESC" visibility="visible"]' );
+            ?>
+
+
+            </div>
+        <?php endforeach; ?>             
+        <?php }; ?> 
+
+
+
+            <div class="header-s-a-link">
+                <?php 
+              //  $popups =pishro_get_option('Doondook_general_insert_category');
+               // $catlist=$popups[0]['Doondook_general_inser_categorys'];
+                ?>
+            </div>
+            
+            <div class="all-game-box">
+
+            <?php
+               //echo do_shortcode( '[product_category per_page="4" orderby="menu_order title" order="ASC" category="Casino"]' );
+               //echo do_shortcode( '[products limit="4" columns="3" best_selling="true" ]' );
+              // $popups =pishro_get_option('Doondook_general_insert_category');
+              // $catlist=$popups[0]['Doondook_general_inser_categorys'];
+            //    $val=explode(',',$catlist);
+               //echo do_shortcode('[products limit="4" columns="4" category="'.$catlist.'"]');
+            ?>
+
+
+            </div>
+        </div>

@@ -100,29 +100,37 @@
 
         </div>
 
-        <div class="game-loop tablet-mobile-carousel">
+    <div class="game-loop tablet-mobile-carousel">
+
+        <?php $category_selection =pishro_get_option('category_selection_home_page'); ?>
+        <?php if($category_selection){ ?>
+        <?php foreach($category_selection as $item): ?>  
+
+
             <div class="header-s-a-link">
-                <h3>Newest Games</h3>
-                <a href="<?php echo get_home_url().'/shop'; ?>">See All ></a>
+                <h3><?php echo $item['category_selection_title']; ?></h3>
+                <a href="<?php echo $item['category_selection_url_link']; ?>">See All ></a>
             </div>
-            
             <div class="all-game-box">
 
             <?php
+            echo do_shortcode('[products limit="4" columns="4" category="'.$item['category_selection_category_type'].'" orderby="id" order="DESC" visibility="visible"]');
                //echo do_shortcode( '[product_category per_page="4" orderby="menu_order title" order="ASC" category="Casino"]' );
-               echo do_shortcode( '[products limit="4" columns="4" orderby="id" order="DESC" visibility="visible"]' );
+               //echo do_shortcode( '[products limit="4" columns="4" orderby="id" order="DESC" visibility="visible"]' );
             ?>
 
 
             </div>
+        <?php endforeach; ?>             
+        <?php }; ?> 
+
+
 
             <div class="header-s-a-link">
                 <?php 
-                $popups =pishro_get_option('Doondook_general_insert_category');
-                $catlist=$popups[0]['Doondook_general_inser_categorys'];
+              //  $popups =pishro_get_option('Doondook_general_insert_category');
+               // $catlist=$popups[0]['Doondook_general_inser_categorys'];
                 ?>
-                <h3><?php echo $catlist; ?> Games</h3>
-                <a href="<?php echo get_home_url().'/shop'; ?>">See All ></a>
             </div>
             
             <div class="all-game-box">
@@ -130,10 +138,10 @@
             <?php
                //echo do_shortcode( '[product_category per_page="4" orderby="menu_order title" order="ASC" category="Casino"]' );
                //echo do_shortcode( '[products limit="4" columns="3" best_selling="true" ]' );
-               $popups =pishro_get_option('Doondook_general_insert_category');
-               $catlist=$popups[0]['Doondook_general_inser_categorys'];
+              // $popups =pishro_get_option('Doondook_general_insert_category');
+              // $catlist=$popups[0]['Doondook_general_inser_categorys'];
             //    $val=explode(',',$catlist);
-               echo do_shortcode('[products limit="4" columns="4" category="'.$catlist.'"]');
+               //echo do_shortcode('[products limit="4" columns="4" category="'.$catlist.'"]');
             ?>
 
 
