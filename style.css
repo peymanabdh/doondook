@@ -2572,6 +2572,9 @@ footer {
     display: none !important;
   }
 }
+html.pum-open.pum-open-overlay.pum-open-scrollable body > [aria-hidden] {
+  padding-right: 15PX;
+}
 .owl-carousel,
 .owl-carousel .owl-item {
   -webkit-tap-highlight-color: transparent;
