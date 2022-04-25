@@ -11,6 +11,11 @@ $alloptions = new_cmb2_box( array(
         'option_key'      => 'pishro_options', // The option key and admin menu page slug.
         'icon_url'        => 'dashicons-palmtree', // Menu icon. Only applicable if 'parent_slug' is left empty.
     ) );
+$alloptions->add_field( array(
+        'name' => 'main logo',
+        'id'          => 'Doondook_general_logo',
+        'type'        => 'file',
+    ) );    
 ///////////////////////////////////////////////////////////////popup
 $general = $alloptions->add_field( array(
     'id'          => 'Doondook_general_popup_options',
@@ -68,7 +73,7 @@ $alloptions->add_group_field( $general, array(
     'type' => 'text',
     'attributes' => array( 'placeholder' => __( 'please insert categoty ass test,test2,.....' ) ),
 ) );
-/////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////users comments
 $general = $alloptions->add_field( array(
     'id'          => 'Doondook_general_comments',
     'type'        => 'group',
@@ -101,17 +106,60 @@ $alloptions->add_group_field( $general, array(
     'id'   => 'users_comments_usernames_type',
     'type' => 'text',
 ) );
-
-
-
-
-
-
-
+/////////////////////////////////////////////////////////////////category selection in home page
+$general = $alloptions->add_field( array(
+    'id'          => 'category_selection_home_page',
+    'type'        => 'group',
+    'repeatable'  => true,
+    'options'     => array(
+        'group_title'       => __( 'category selection in home page' ),
+        // 'add_button' => __( 'add' ),
+        // 'remove_button' => __( 'remove' ),
+        'sortable' => true,
+        'closed' => true,
+    ),
+) );
+$alloptions->add_group_field( $general, array(
+    'name' => 'category_selection_title',
+    'id'   => 'category_selection_title',
+    'type' => 'text',
+) );
+$alloptions->add_group_field( $general, array(
+    'name' => 'category_selection_url_link',
+    'id'   => 'category_selection_url_link',
+    'type' => 'text',
+) );
+$alloptions->add_group_field( $general, array(
+    'name' => 'category_selection_category_type',
+    'id'   => 'category_selection_category_type',
+    'type' => 'text',
+) );
 
 
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

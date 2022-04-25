@@ -12,11 +12,15 @@
     <div class="navigation-bar">
         <div class="navigation-menu hide-in-mobile">
             <div class="website-logo-wrapper">
-                <a href="<?php echo site_url(); ?>"><img class="website-logo" src="https://picsum.photos/36/36" /></a>
+                <?php
+                $Doondook_general_logo =pishro_get_option('Doondook_general_logo');
+                 
+                ?>
+                <a href="<?php echo site_url(); ?>"><img class="website-logo" src="<?php echo $Doondook_general_logo; ?>" /></a>
             </div>
             <div class="menu-items">
                 <div class="menu-item contact-us">
-                    <span><a href="#">Contact Us</a></span>
+                    <span><a class="popmake-11359" href="#">Contact Us</a></span>
                 </div>
                 <div class="menu-item">
                     <span><a href="#">About</a></span>
