@@ -2081,6 +2081,8 @@ html body .pum .pum-container .pum-close {
   .home-page-services-box .home-services-container .service {
     margin: auto;
     display: block;
+    min-width: 256px;
+    width: 70%;
   }
 }
 .home-page-services-box .home-services-container .service .service-image {
@@ -2291,6 +2293,7 @@ html body .pum .pum-container .pum-close {
 }
 @media screen and (max-width: 1240px) {
   .home-introduce-section .contact-us {
+    margin-left: 20px;
     width: 728px;
     height: auto;
   }
@@ -2398,23 +2401,9 @@ html body .pum .pum-container .pum-close {
     margin: 0 10px 12px;
   }
 }
-.customer-comment-box .owl-stage-outer {
-  width: 1252px;
-  padding: 0 6px;
-  margin-left: -6px;
-}
 @media screen and (max-width: 1240px) {
   .customer-comment-box .owl-stage-outer {
-    width: calc(100% - 22px);
-    padding: 0 3px;
-    margin-left: -9px;
-  }
-}
-@media screen and (max-width: 768px) {
-  .customer-comment-box .owl-stage-outer {
     width: 100%;
-    margin-left: -6px;
-    padding: 0 5px;
   }
 }
 .customer-comment-box .owl-item {

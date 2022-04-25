@@ -100,12 +100,12 @@
 
         </div>
 
-    <div class="game-loop tablet-mobile-carousel">
 
-        <?php $category_selection =pishro_get_option('category_selection_home_page'); ?>
-        <?php if($category_selection){ ?>
-        <?php foreach($category_selection as $item): ?>  
+    <?php $category_selection =pishro_get_option('category_selection_home_page'); ?>
+    <?php if($category_selection){ ?>
+    <?php foreach($category_selection as $item): ?>  
 
+        <div class="game-loop tablet-mobile-carousel">
 
             <div class="header-s-a-link">
                 <h3><?php echo $item['category_selection_title']; ?></h3>
@@ -121,32 +121,11 @@
 
 
             </div>
-        <?php endforeach; ?>             
-        <?php }; ?> 
-
-
-
-            <div class="header-s-a-link">
-                <?php 
-              //  $popups =pishro_get_option('Doondook_general_insert_category');
-               // $catlist=$popups[0]['Doondook_general_inser_categorys'];
-                ?>
-            </div>
-            
-            <div class="all-game-box">
-
-            <?php
-               //echo do_shortcode( '[product_category per_page="4" orderby="menu_order title" order="ASC" category="Casino"]' );
-               //echo do_shortcode( '[products limit="4" columns="3" best_selling="true" ]' );
-              // $popups =pishro_get_option('Doondook_general_insert_category');
-              // $catlist=$popups[0]['Doondook_general_inser_categorys'];
-            //    $val=explode(',',$catlist);
-               //echo do_shortcode('[products limit="4" columns="4" category="'.$catlist.'"]');
-            ?>
-
-
-            </div>
         </div>
+
+    <?php endforeach; ?>             
+    <?php }; ?> 
+
 
         <div class="our-customer-box card">
             <div class="description-title">
@@ -171,27 +150,31 @@
         </div>
 
         <?php $comments =pishro_get_option('Doondook_general_comments'); ?>
-        <div class="customer-comment-box owl-carousel owl-theme">
+        
         <?php if($comments){ ?>
-        <?php foreach($comments as $item): ?>  
-                <div class="customer-single-comment card">
-                    <div class="comment-section">
-                        <p>
-                        <?php if(isset($item['users_comments_content'])){echo $item['users_comments_content'];} ?>
-                        </p>
-                    </div>
-                    <div class="line"></div>
-                    <div class="user-section">
-                        <div class="customer-avatar" style="background-image: url(<?php if(isset($item['users_comments_usernames_image'])){echo $item['users_comments_usernames_image'];} ?>);"></div>
-                        <div class="name-position">
-                            <span class="name"><?php if(isset($item['users_comments_usernames'])){echo $item['users_comments_usernames'];} ?></span>
-                            <span class="position"><?php if(isset($item['users_comments_usernames_type'])){echo $item['users_comments_usernames_type'];} ?></span>
+        <div class="customer-comment-box">
+            <div class="owl-carousel owl-theme">
+                <?php foreach($comments as $item): ?>  
+                    <div class="customer-single-comment card">
+                        <div class="comment-section">
+                            <p>
+                            <?php if(isset($item['users_comments_content'])){echo $item['users_comments_content'];} ?>
+                            </p>
                         </div>
-                    </div>
-                </div>   
-        <?php endforeach; ?>             
+                        <div class="line"></div>
+                        <div class="user-section">
+                            <div class="customer-avatar" style="background-image: url(<?php if(isset($item['users_comments_usernames_image'])){echo $item['users_comments_usernames_image'];} ?>);"></div>
+                            <div class="name-position">
+                                <span class="name"><?php if(isset($item['users_comments_usernames'])){echo $item['users_comments_usernames'];} ?></span>
+                                <span class="position"><?php if(isset($item['users_comments_usernames_type'])){echo $item['users_comments_usernames_type'];} ?></span>
+                            </div>
+                        </div>
+                    </div>   
+                <?php endforeach; ?>   
+            </div>
+        </div>          
         <?php }; ?> 
-        </div>
+        
 
     </div>
 </div>
