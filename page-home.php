@@ -153,7 +153,7 @@
         
         <?php if($comments){ ?>
         <div class="customer-comment-box">
-            <div class="owl-carousel owl-theme">
+            <div class="customer-comment-box-content owl-carousel owl-theme">
                 <?php foreach($comments as $item): ?>  
                     <div class="customer-single-comment card">
                         <div class="comment-section">

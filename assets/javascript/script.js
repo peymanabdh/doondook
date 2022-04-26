@@ -93,7 +93,7 @@ $(document).ready(function(){
         }        
     }
 
-    $('.customer-comment-box').owlCarousel({
+    $('.customer-comment-box-content').owlCarousel({
         loop:true,
         margin:15,
         nav:false,

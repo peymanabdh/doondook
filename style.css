@@ -2388,17 +2388,20 @@ html body .pum .pum-container .pum-close {
 }
 .customer-comment-box {
   width: 1240px;
+  height: 333px;
 }
 @media screen and (max-width: 1240px) {
   .customer-comment-box {
     width: calc(100% - 40px);
     margin: 0 20px 17px;
+    height: 296px;
   }
 }
 @media screen and (max-width: 768px) {
   .customer-comment-box {
     width: calc(100% - 20px);
     margin: 0 10px 12px;
+    height: 309px;
   }
 }
 @media screen and (max-width: 1240px) {
