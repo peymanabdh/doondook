@@ -6,7 +6,6 @@
 <?php get_header() ?>
 
 
-
 <div class="page-wrapper page-wrapper-full-width home-page-wrapper">
     <div class="page-content home-page-content">
     <?php

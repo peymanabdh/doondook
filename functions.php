@@ -326,5 +326,45 @@ remove_action( 'woocommerce_sidebar', 'woocommerce_get_sidebar', 10 );
 }
 }
 //////////////////////////////////////////////////////remove breadcramb
+
+
+
 remove_action( 'woocommerce_before_main_content', 'woocommerce_breadcrumb', 20, 0);
-////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////get cat names by term
+// function retrieve_my_terms(){
+//     $terms = get_terms( 'product_cat' );
+// foreach( $terms as $term ) 
+// {
+    // echo 'Product Category: '
+    //     . $term->name
+    //     . ' - Count: '
+    //     . $term->count;
+   // $val=$term->name;
+  //  var_dump($val);
+//} 
+//}
+//add_action('init', 'retrieve_my_terms', 9999);
+///////////////////////////////////////////////////////////////////////get product cat names by wpdb
+// function load_terms( $taxonomy ){
+//     global $wpdb;
+//     $query = "SELECT DISTINCT 
+//                t.name 
+//               FROM
+//                {$wpdb->terms} t 
+//               INNER JOIN 
+//                {$wpdb->term_taxonomy} tax 
+//               ON 
+//                tax.term_id = t.term_id
+//               WHERE 
+//                ( tax.taxonomy = '{$taxonomy}')";                     
+//     $result = $wpdb->get_results( $query , ARRAY_A );
+
+//     return $result;                 
+// }
+// $valu= load_terms('product_cat');
+// foreach($valu as $val){
+//     echo '<pre>';
+//     var_dump($val['name']);
+//     echo '</pre>';
+// }
+/////////////////////////////////////////////////////////////////////////
