@@ -151,3 +151,73 @@ $alloptions->add_group_field( $general, array(
 
             </div>
         </div>
+        //////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////get cat names by term
+function retrieve_my_terms(){
+    $terms = get_terms( 'product_cat' );
+// DEBUG
+// var_dump( $terms ); 
+foreach( $terms as $term ) 
+{
+    // echo 'Product Category: '
+    //     . $term->name
+    //     . ' - Count: '
+    //     . $term->count;
+    $val=$term->name;
+    var_dump($val);
+} 
+}
+  
+
+add_action('init', 'retrieve_my_terms', 9999);
+///////////////////////////////////////////////////////////////////////get product cat names by wpdb
+// function load_terms( $taxonomy ){
+//     global $wpdb;
+//     $query = "SELECT DISTINCT 
+//                t.name 
+//               FROM
+//                {$wpdb->terms} t 
+//               INNER JOIN 
+//                {$wpdb->term_taxonomy} tax 
+//               ON 
+//                tax.term_id = t.term_id
+//               WHERE 
+//                ( tax.taxonomy = '{$taxonomy}')";                     
+//     $result = $wpdb->get_results( $query , ARRAY_A );
+
+//     return $result;                 
+// }
+// $valu= load_terms('product_cat');
+// foreach($valu as $val){
+//     echo '<pre>';
+//     var_dump($val['name']);
+//     echo '</pre>';
+// }
+/////////////////////////////////////////////////////////////////////////
+<?php 
+$rows = get_field('testgropmainrep','option');
+$rows2 = get_field('repmenu','option');
+?>
+<?php if( have_rows('testgropmainrep', 'option') ): ?>
+
+<ul>
+
+<?php while( have_rows('testgropmainrep', 'option') ): the_row(); ?>
+
+    <li><?php the_sub_field('maintitle'); ?></li>
+    <li><?php the_sub_field('text_title'); ?></li>
+    <?php if( have_rows('repmenu') ): ?>
+           <?php while( have_rows('repmenu') ) : the_row(); ?>
+        
+            <?php    $child_title = get_sub_field('textrepmenu'); ?>
+            
+            <li><?php the_sub_field('textrepmenu'); ?></li>
+          <?php  endwhile; ?>
+      <?php  endif; ?>
+
+<?php endwhile; ?>
+
+</ul>
+
+<?php endif; ?>
+/////////////////////////////////////////////////////////////////////////

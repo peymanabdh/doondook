@@ -55,24 +55,24 @@ $alloptions->add_group_field( $general, array(
 ) );
 
 ////////////////////////////////////////////////////////
-$general = $alloptions->add_field( array(
-    'id'          => 'Doondook_general_insert_category',
-    'type'        => 'group',
-    'repeatable'  => false,
-    'options'     => array(
-        'group_title'       => __( 'insert catgory for display on home page' ),
-        // 'add_button' => __( 'add' ),
-        // 'remove_button' => __( 'remove' ),
-        'sortable' => true,
-        'closed' => true, 
-    ),
-) );
-$alloptions->add_group_field( $general, array(
-    'name' => 'insert catgory for display on home page',
-    'id'   => 'Doondook_general_inser_categorys',
-    'type' => 'text',
-    'attributes' => array( 'placeholder' => __( 'please insert categoty ass test,test2,.....' ) ),
-) );
+// $general = $alloptions->add_field( array(
+//     'id'          => 'Doondook_general_insert_category',
+//     'type'        => 'group',
+//     'repeatable'  => false,
+//     'options'     => array(
+//         'group_title'       => __( 'insert catgory for display on home page' ),
+//         // 'add_button' => __( 'add' ),
+//         // 'remove_button' => __( 'remove' ),
+//         'sortable' => true,
+//         'closed' => true, 
+//     ),
+// ) );
+// $alloptions->add_group_field( $general, array(
+//     'name' => 'insert catgory for display on home page',
+//     'id'   => 'Doondook_general_inser_categorys',
+//     'type' => 'text',
+//     'attributes' => array( 'placeholder' => __( 'please insert categoty ass test,test2,.....' ) ),
+// ) );
 /////////////////////////////////////////////////////////////////users comments
 $general = $alloptions->add_field( array(
     'id'          => 'Doondook_general_comments',
@@ -134,8 +134,32 @@ $alloptions->add_group_field( $general, array(
     'id'   => 'category_selection_category_type',
     'type' => 'text',
 ) );
-
-
+/////////////////////////////////////////////////archive product meta
+$general = $alloptions->add_field( array(
+    'id'          => 'archive_product_meta',
+    'type'        => 'group',
+    'repeatable'  => false,
+    'options'     => array(
+        'group_title'       => __( 'archive product meta' ),
+        // 'add_button' => __( 'add' ),
+        // 'remove_button' => __( 'remove' ),
+        'sortable' => true,
+        'closed' => true, 
+    ),
+) );
+$alloptions->add_group_field( $general, array(
+    'name' => 'archive product title',
+    'id'   => 'archive_product_title_meta',
+    'type' => 'text',
+    'attributes' => array( 'placeholder' => __( 'archive_product_title_meta' ) ),
+) );
+$alloptions->add_group_field($general, array(
+    'name'    => 'archive product content',
+    'desc'    => 'archive product content',
+    'id'      => 'archive_product_content',
+    'type'    => 'wysiwyg',
+    'options' => array(),
+) );
 
 }
 

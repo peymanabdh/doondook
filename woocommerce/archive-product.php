@@ -1,22 +1,14 @@
 <?php
-
 defined( 'ABSPATH' ) || exit;
-
 get_header( 'shop' );
 ?>
 <div class="page-wrapper archive-product-wrapper">
-    <h1><?php the_title(); ?></h1>
+	<?php $archive_product_meta =pishro_get_option('archive_product_meta');
+	?>
+    <h1><?php echo $archive_product_meta[0]['archive_product_title_meta']; ?></h1>
 	<div class="card archive-description-box">
 		<div class="archive-description-content">
-			There are many variations of passages of Lorem Ipsum available. 
-			But the majority have suffered alteration in some form, by injected humour.
-			Order randomised words which don't look even slightly believable. 
-			If you are going to use a passage of Lorem Ipsum.
-			You need to be sure there isn't anything embarrassing hidden in the middle of text. 
-			There are many variations of passages. 
-			The first option
-			The Mandatory Selection
-			And the end of the file
+		<?php echo $archive_product_meta[0]['archive_product_content']; ?>
 		</div>
 	</div>
     <div class="page-content archive-product-content">
