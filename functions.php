@@ -172,7 +172,8 @@ if( function_exists('acf_add_options_page') ) {
 
 $latest = new WP_Query( array (
     'post_type' => 'service',
-    'fields' => 'ids'
+    // 'fields' => 'ids',
+    'order' => 'ASE',
 ));
 // $myid=$latest->get_the_ID();
 // echo '<pre>';
@@ -181,13 +182,15 @@ $latest = new WP_Query( array (
 if ( $latest->have_posts() ) {
     while ( $latest->have_posts() ) {
         $latest->the_post();     
-        $myidarr[]=get_the_ID();
-        // $titles=get_the_tags();
-        // foreach($titles as $title){
-        //    $argg[]=$title->name;
-        // }       
+        // $myidarr[]=get_the_ID();
+        $titles=get_the_tags();
+        foreach($titles as $title){
+            $argg[]=$title->name;
+         }       
     }
+    
 }
+
 if( function_exists('acf_add_local_field_group') ):
 
     acf_add_local_field_group(array (
@@ -206,7 +209,7 @@ if( function_exists('acf_add_local_field_group') ):
                     'class' => '',
                     'id' => '',
                 ],
-                'choices' => $myidarr,
+                'choices' => $argg,
                 'default_value' => [],
                 'value'=>[],
                 'multiple' => 1,
