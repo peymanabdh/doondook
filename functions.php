@@ -319,6 +319,24 @@ endif;
     }
     add_shortcode( 'important_yellow', 'important_sentence_yellow' );
 
+
+
+    function contact_us_title_icon($attr){     
+        $args = shortcode_atts( array(
+            'title' => '',
+            'url' =>''
+        ), $attr );
+        $output= '<div class="description-title">
+        <div class="description-title-image" style="background-image: url('.$args['url'].'"></div>
+        <div class="description-title-text">
+        <h2>'.$args['title'].'</h2>
+        </div>
+            </div>';
+        return $output;
+                
+    }
+    add_shortcode( 'contact_us_title_icon', 'contact_us_title_icon' );
+
 /////////////////////////////////////////////////////////////////////////////woocammerce remove sidebar
 
 add_action( 'wp', 'bbloomer_remove_sidebar_product_pages' );

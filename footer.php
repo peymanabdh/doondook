@@ -42,7 +42,7 @@
                wp_reset_query();
             ?> 
             <?php $countPostType=wp_count_posts($post_type ='service')->publish; ?>
-                <?php if($countPostType>8): ?>
+                <?php if($countPostType>6): ?>
                 <a href="#" title="">See All ></a>
                 <?php endif; ?>      
         </div>
@@ -64,7 +64,7 @@
                <?php endwhile;
                wp_reset_query();
             ?> 
-            <a href="#" title="">See All ></a>
+            <a href="<?php echo get_site_url().'/shop/'; ?>" title="">See All ></a>
         </div>
         <div class="footer-link-col">
             <h4>Best Seller Games </h4>  
@@ -73,7 +73,7 @@
                     array(
                          'post_type'=>'product',
                          'posts_per_page'=>'4',
-                        'product_cat' => 'best-seller',
+                         'product_cat' => 'best-seller',
                          'order' => 'DESC',
                         'post_status' => 'publish',
                     )
@@ -84,7 +84,10 @@
                <?php endwhile;
                wp_reset_query();
             ?> 
-            <a href="#" title="">See All ></a>
+            <?php
+            $category_link=get_term_link( 994, 'product_cat' );
+            ?>
+            <a href="<?php echo $category_link; ?>" title="">See All ></a>
         </div>
     </div>
 
