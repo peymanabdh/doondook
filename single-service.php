@@ -63,7 +63,7 @@ $Frequently_Asked_Questions_main_title_icon=get_post_meta(get_the_ID(),'Frequent
         </div>
         <div class="sidebar-content">
             <div class="card">
-                <div class="contact-form-box">
+                <div class="contact-form-box" id="contact-us">
                     <div class="description-title">
                         <?php $contact_us_icon=get_post_meta(get_the_ID(),'service_contact_form_icon',true); ?>
                         <div class="description-title-image" style="background-image: url(<?php if($contact_us_icon){ echo $contact_us_icon; }?>);"></div>

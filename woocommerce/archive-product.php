@@ -30,6 +30,10 @@ get_header( 'shop' );
 					woocommerce_product_loop_end();
 					
 					?>
+				<?php 
+					$pagination=get_the_posts_pagination();
+					if($pagination !=null):
+				?>
 					<div class="pagination-wrapper">
 						<div class="card">
 							<?php
@@ -42,6 +46,7 @@ get_header( 'shop' );
 							?>
 						</div>
 					</div>
+				<?php endif; ?>	
 					<?php
 					// do_action( 'woocommerce_after_shop_loop' );
 				} else {

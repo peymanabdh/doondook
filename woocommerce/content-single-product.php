@@ -239,13 +239,13 @@ $variations = [];
                                 <div class="game-service-icon" style="background-image: url(<?php echo get_the_post_thumbnail_url() ?>)"></div>
                                 <div class="game-service">
                                 <a href="<?php the_permalink(); ?>"> <h4 class="game-service-title"> <?php the_title(); ?> </h4>  </a>
-                                <a href="<?php the_permalink(); ?>"><p class="game-service-content">
+                                <p class="game-service-content">
                                     <?php the_excerpt(); ?>
-                                    </p>
-                                    </a>
+                                </p>
+                
                                     <div class="game-service-btns">
-                                        <button class="small-btn blue">Learn More</button>
-                                        <button class="small-btn yellow">Contact Us</button>
+                                        <a href="<?php the_permalink(); ?>" class="small-btn blue">Learn More</a>
+                                        <a href="<?php the_permalink(); ?>#contact-us" class="small-btn yellow">Contact Us</a>
                                     </div>
                                 </div>
                                
