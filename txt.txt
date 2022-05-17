@@ -221,3 +221,42 @@ $rows2 = get_field('repmenu','option');
 
 <?php endif; ?>
 /////////////////////////////////////////////////////////////////////////
+$args = array(
+	'post_type' => 'book',
+	'tax_query' => array(
+		array(
+			'taxonomy' => 'genre',
+			'field'    => 'slug',
+			'terms'    => array( 'scifi', 'thriller' ),
+			'operator' => 'NOT IN',
+		),
+		array(
+			'taxonomy' => 'author',
+			'field'    => 'id',
+			'terms'    => array( 92, 883, 399 ),
+		),
+		'relation' => 'AND',
+	),
+);
+$query = new WP_Query( $args );
+
+$args = array(
+    'posts_per_page' => -1,
+    'tax_query' => array(
+        'relation' => 'AND',
+        array(
+            'taxonomy' => 'product_cat',
+            'field' => 'slug',
+            'terms' => 'category-slug1'
+        ),
+        array(
+            'taxonomy' => 'product_cat',
+            'field' => 'slug',
+            'terms' => 'category-slug2'
+        )
+    ),
+    'post_type' => 'product',
+    'orderby' => 'title',
+);
+$the_query = new WP_Query( $args );
+//////////////////////////////////////////////////////////////////////////////

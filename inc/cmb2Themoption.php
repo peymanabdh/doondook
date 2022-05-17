@@ -160,6 +160,29 @@ $alloptions->add_group_field($general, array(
     'type'    => 'wysiwyg',
     'options' => array(),
 ) );
+/////////////////////////////////////////////////////footer first section
+$general1 = $alloptions->add_field( array(
+    'id'          => 'footer_first_section',
+    'type'        => 'group',
+    'repeatable'  => true,
+    'options'     => array(
+        'group_title'       => __( 'footer company section' ),
+        // 'add_button' => __( 'add' ),
+        // 'remove_button' => __( 'remove' ),
+        'sortable' => true,
+        'closed' => true, 
+    ),
+) );
+$alloptions->add_group_field( $general1, array(
+    'name' => 'footer company sections title',
+    'id'   => 'footer_company_section_title',
+    'type' => 'text',
+) );
+$alloptions->add_group_field( $general1, array(
+    'name' => 'footer company sections url',
+    'id'   => 'footer_company_section_url',
+    'type' => 'text',
+) );
 
 }
 

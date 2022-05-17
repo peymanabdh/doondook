@@ -229,38 +229,34 @@ $variations = [];
                 <?php
                         $feild=get_field('sercice_id_option','option');
                         $val=implode(',',$feild);
-                        $attachments = get_posts( array(
-                            'post_type'      => 'service',
-                            'posts_per_page'=>4,
-                            'include'   => $val,
-                        ) );
-                        ?>
-
-                        <?php if ($attachments ) {
-                            foreach ( $attachments as $post ) { 
-                                $post_title =$post->the_title;
-                               
-                        ?>
-                             
-                            <div class="game-single-service">
+                        // var_dump($val);
+                        $args = array('post_type'=>'service','tag' => $val);
+                        $wp_query = new WP_Query($args);?>
+                <?php while($wp_query->have_posts()): 
+                        $wp_query->the_post();
+                ?>
+                    <div class="game-single-service">
                                 <div class="game-service-icon" style="background-image: url(<?php echo get_the_post_thumbnail_url() ?>)"></div>
                                 <div class="game-service">
-                                <a href="<?php the_permalink($post->ID); ?>"> <h4 class="game-service-title"> <?php echo $post->post_title; ?> </h4>  </a>
-                                <a href="<?php the_permalink($post->ID); ?>"><p class="game-service-content">
-                                    <?php echo $post->post_excerpt; ?>
-                                    </p>
-                                    </a>
+                                <a href="<?php the_permalink(); ?>"> <h4 class="game-service-title"> <?php the_title(); ?> </h4>  </a>
+                                <p class="game-service-content">
+                                    <?php the_excerpt(); ?>
+                                </p>
+                
                                     <div class="game-service-btns">
-                                        <button class="small-btn blue">Learn More</button>
-                                        <button class="small-btn yellow">Contact Us</button>
+                                        <a href="<?php the_permalink(); ?>" class="small-btn blue">Learn More</a>
+                                        <a href="<?php the_permalink(); ?>#contact-us" class="small-btn yellow">Contact Us</a>
                                     </div>
                                 </div>
                                
-                            </div>
+                    </div>
+                <?php   endwhile; ?>
+                <?php  wp_reset_query(); ?>
+
+                       
+                            
                            
-                            <?php } ?>
-                            <?php wp_reset_postdata(); ?>
-                            <?php } ?>
+                           
                                     
                 </div>
 
@@ -337,36 +333,21 @@ $variations = [];
 
                
                 <div class="services-box">
-
                 <?php
                         $feild=get_field('sercice_id_option','option');
                         $val=implode(',',$feild);
-                        // $attachments = get_posts( array(
-                        //     'post_type'      => 'service',
-                        //     'include'   => $val,
-                        // ) );
-                        $args = array(
-                            'post_type' => array( 'service' ),
-                            'posts_per_page'  => 4,
-                            'meta_key' => 'sercice_id_option',
-                            'orderby' => 'meta_value',
-                            'order'	=> 'DESC'
-                        );
-                        $att=new WP_Query($args);
-                        ?>
-
-                        <?php if ($att ) {
-                            foreach ( $att as $post ) { 
-                                $post_title =$post->the_title;
-                               
-                        ?>
-                             
-                            <div class="game-single-service">
+                        // var_dump($val);
+                        $args = array('post_type'=>'service','tag' => $val);
+                        $wp_query = new WP_Query($args);?>
+                <?php while($wp_query->have_posts()): 
+                        $wp_query->the_post();
+                ?>
+                    <div class="game-single-service">
                                 <div class="game-service-icon" style="background-image: url(<?php echo get_the_post_thumbnail_url() ?>)"></div>
                                 <div class="game-service">
-                                <a href="<?php the_permalink($post->ID); ?>"> <h4 class="game-service-title"> <?php echo $post->post_title; ?> </h4>  </a>
-                                <a href="<?php the_permalink($post->ID); ?>"><p class="game-service-content">
-                                    <?php echo $post->post_excerpt; ?>
+                                <a href="<?php the_permalink(); ?>"> <h4 class="game-service-title"> <?php the_title(); ?> </h4>  </a>
+                                <a href="<?php the_permalink(); ?>"><p class="game-service-content">
+                                    <?php the_excerpt(); ?>
                                     </p>
                                     </a>
                                     <div class="game-service-btns">
@@ -375,12 +356,9 @@ $variations = [];
                                     </div>
                                 </div>
                                
-                            </div>
-                           
-                            <?php } ?>
-                            <?php wp_reset_postdata(); ?>
-                            <?php } ?>
-                                    
+                    </div>
+                <?php   endwhile; ?>
+                <?php  wp_reset_query(); ?>
                 </div>
 
             </div>

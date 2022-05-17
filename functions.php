@@ -172,7 +172,8 @@ if( function_exists('acf_add_options_page') ) {
 
 $latest = new WP_Query( array (
     'post_type' => 'service',
-    'fields' => 'ids'
+    // 'fields' => 'ids',
+    'order' => 'ASE',
 ));
 // $myid=$latest->get_the_ID();
 // echo '<pre>';
@@ -181,13 +182,15 @@ $latest = new WP_Query( array (
 if ( $latest->have_posts() ) {
     while ( $latest->have_posts() ) {
         $latest->the_post();     
-        $myidarr[]=get_the_ID();
-        // $titles=get_the_tags();
-        // foreach($titles as $title){
-        //    $argg[]=$title->name;
-        // }       
+        // $myidarr[]=get_the_ID();
+        $titles=get_the_tags();
+        foreach($titles as $title){
+            $argg[]=$title->name;
+         }       
     }
+    
 }
+
 if( function_exists('acf_add_local_field_group') ):
 
     acf_add_local_field_group(array (
@@ -206,7 +209,7 @@ if( function_exists('acf_add_local_field_group') ):
                     'class' => '',
                     'id' => '',
                 ],
-                'choices' => $myidarr,
+                'choices' => $argg,
                 'default_value' => [],
                 'value'=>[],
                 'multiple' => 1,
@@ -315,6 +318,24 @@ endif;
                 
     }
     add_shortcode( 'important_yellow', 'important_sentence_yellow' );
+
+
+
+    function contact_us_title_icon($attr){     
+        $args = shortcode_atts( array(
+            'title' => '',
+            'url' =>''
+        ), $attr );
+        $output= '<div class="description-title">
+        <div class="description-title-image" style="background-image: url('.$args['url'].'"></div>
+        <div class="description-title-text">
+        <h2>'.$args['title'].'</h2>
+        </div>
+            </div>';
+        return $output;
+                
+    }
+    add_shortcode( 'contact_us_title_icon', 'contact_us_title_icon' );
 
 /////////////////////////////////////////////////////////////////////////////woocammerce remove sidebar
 

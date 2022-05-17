@@ -1,75 +1,93 @@
 <footer>
-    
+<?php 
+        $terms = get_terms( array( 
+            'taxonomy' => 'pa_genre',
+            'fields' => 'all',
+            'orderby' => 'name',
+            'order' => 'ASC',
+            'include' => 'all',
+            'exclude' => 'all',
+            'exclude_tree' => 'all',
+            'hide_empty' => false,
+        ) );
+?>
     <div class="footer-wrapper footer-tags">
-        <a href="#" title="word 1">word 1</a>
-        <a href="#" title="word 2">word 2</a>
-        <a href="#" title="word 3">word 3</a>
-        <a href="#" title="word 4">word 4</a>
-        <a href="#" title="word 1">word 1</a>
-        <a href="#" title="word 2">word 2</a>
-        <a href="#" title="word 3">word 3</a>
-        <a href="#" title="word 4">word 4</a>
-        <a href="#" title="word 1">word 1</a>
-        <a href="#" title="word 2">word 2</a>
-        <a href="#" title="word 3">word 3</a>
-        <a href="#" title="word 4">word 4</a>
-        <a href="#" title="word 1">word 1</a>
-        <a href="#" title="word s da a">word s da a</a>
-        <a href="#" title="word 3">word 3</a>
-        <a href="#" title="word as dasd sa">word as dasd sa</a>
-        <a href="#" title="word 1">word 1</a>
-        <a href="#" title="word 2">word 2</a>
-        <a href="#" title="word 3">word 3</a>
-        <a href="#" title="word 4">word 4</a>
-        <a href="#" title="word 1">word 1</a>
-        <a href="#" title="word 2">word 2</a>
-        <a href="#" title="word 3">word 3</a>
-        <a href="#" title="word 4">word 4</a>
+        <?php  foreach ( $terms as $term ):?>
+            <?php $term_link = get_term_link( $term ); ?>
+            <a href="<?php echo $term_link; ?>" title=""><?php echo $term->name; ?></a>
+        <?php endforeach; ?>
     </div>
 
     <div class="footer-wrapper footer-links">
         <div class="footer-link-col">
-            <h4>title</h4>
-            
-                <a href="#" title="link">link</a>
-                <a href="#" title="link">link</a>
-                <a href="#" title="link">link</a>
-                <a href="#" title="link">link</a>
-                <a href="#" title="link">link</a>
-            
+        <?php $Footer_co_sec =pishro_get_option('footer_first_section');?>
+            <h4>Company</h4>
+            <?php foreach($Footer_co_sec as $item): ?>
+                <a href="<?php echo $item['footer_company_section_url'] ?>" title="link"><?php echo $item['footer_company_section_title'] ?></a>
+            <?php endforeach; ?>
         </div>
         <div class="footer-link-col">
-            <h4>title</h4>
-            
-            <a href="#" title="link">link</a>
-            <a href="#" title="link">link</a>
-            <a href="#" title="link">link</a>
-            <a href="#" title="link">link</a>
-            <a href="#" title="link">link</a>
-            <a href="#" title="link">link</a>
-            <a href="#" title="link">link</a>
-            <a href="#" title="link lin kl in dkashd asuhd kasudhk kli nkli nkl ink lin nkli nklin k lin  kl ink">link lin kl in dkashd asuhd kasudhk kli nkli nkl ink lin nkli nklin k lin  kl ink</a>
-            
+            <h4>Services</h4>
+            <?php 
+                 $quey=new WP_Query(
+                    array(
+                         'post_type'=>'service',
+                         'posts_per_page'=>'4',
+                    )
+                );
+                while($quey->have_posts()):
+                     $quey->the_post();?>
+                     <a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>"><?php the_title(); ?></a>
+               <?php endwhile;
+               wp_reset_query();
+            ?> 
+            <?php $countPostType=wp_count_posts($post_type ='service')->publish; ?>
+                <?php if($countPostType>6): ?>
+                <a href="#" title="">See All ></a>
+                <?php endif; ?>      
+        </div>
+
+        <div class="footer-link-col">
+            <h4>Latest Games </h4>
+            <?php 
+                 $quey=new WP_Query(
+                    array(
+                         'post_type'=>'product',
+                         'posts_per_page'=>'4',
+                         'order' => 'DESC',
+                        'post_status' => 'publish',
+                    )
+                );
+                while($quey->have_posts()):
+                     $quey->the_post();?>
+                     <a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>"><?php the_title(); ?></a>
+               <?php endwhile;
+               wp_reset_query();
+            ?> 
+            <a href="<?php echo get_site_url().'/shop/'; ?>" title="">See All ></a>
         </div>
         <div class="footer-link-col">
-            <h4>title</h4>
-            
-            <a href="#" title="link">link</a>
-            <a href="#" title="link">link</a>
-            <a href="#" title="link">link</a>
-            <a href="#" title="link">link</a>
-            <a href="#" title="link">link</a>
-            
-        </div>
-        <div class="footer-link-col">
-            <h4>title</h4>
-            
-            <a href="#" title="link">link</a>
-            <a href="#" title="link">link</a>
-            <a href="#" title="link">link</a>
-            <a href="#" title="link">link</a>
-            <a href="#" title="link">link</a>
-            
+            <h4>Best Seller Games </h4>  
+            <?php 
+                 $quey=new WP_Query(
+                    array(
+                         'post_type'=>'product',
+                         'posts_per_page'=>'4',
+                         'product_cat' => 'best-seller',
+                         'order' => 'DESC',
+                        'post_status' => 'publish',
+                    )
+                );
+                while($quey->have_posts()):
+                     $quey->the_post();?>
+                     <a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>"><?php the_title(); ?></a>
+               <?php endwhile;
+               wp_reset_query();
+            ?> 
+            <?php
+            $category_link=get_term_link( 994, 'product_cat' );
+            ?>
+            <a href="<?php echo $category_link; ?>" title="">See All ></a>
         </div>
     </div>
 
@@ -82,31 +100,6 @@
         Copyright © 2018-<?php echo date("Y"); ?> by DoonDookStudio All Rights Reserved.
         </div>
     </div>
-
-    <?php /*
-        $terms = get_terms( array( 
-            'taxonomy' => 'pa_genre',
-            'fields' => 'all',
-            'orderby' => 'name',
-            'order' => 'ASC',
-            'include' => 'all',
-            'exclude' => 'all',
-            'exclude_tree' => 'all',
-            'hide_empty' => false,
-        ) );
-        echo '<ul>';
-            foreach ( $terms as $term ) {
-                $term_link = get_term_link( $term );
-                echo "<a href=".$term_link.">" . $term->name . "</a>";
-            }
-        echo '</ul>';
-        // var_dump($terms);
-        //////////////////////////////////////////////
-        echo "</br>";  */ 
-    ?>   
-        
-
-
 </footer>
         <?php wp_footer(); ?>
         <script src="<?php echo theme_uri('assets/javascript/script.js') ?>"></script>
