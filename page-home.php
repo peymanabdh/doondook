@@ -83,8 +83,8 @@
 
                     <div class="service">
                         <div class="service-image" style="background-image: url(<?php echo get_the_post_thumbnail_url(); ?>);"></div>
-                        <h4 class="service-title"><?php echo $post->post_title; ?></h4>
-                        <p class="service-text"> <?php echo $post->post_excerpt; ?></p>
+                        <h4 class="service-title"><?php echo custom_shorter_string($post->post_title); ?></h4>
+                        <p class="service-text"> <?php echo custom_shorter_string($post->post_excerpt); ?></p>
                         <button class="small-btn blue"><a href="<?php the_permalink($post->ID); ?>">Learn More</a></button>
                     </div>
 

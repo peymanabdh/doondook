@@ -14,7 +14,12 @@
         <div class="main-content">
             <div class="card">
                 <p>
-                    <?php echo the_content(); ?>
+                    <?php  
+                    // echo $post->post_content;
+                    if ( have_posts() ) while ( have_posts() )  the_post();
+                    the_content();
+
+                    ?>
                 </p>
                 <!-- <div class="important-text-box green">“An important sentence that should be emphasized to the reader! This is up to 4 lines. Read agian: an important sentence that should be emphasized to the reader. This is up to 4 lines!”</div> -->
                 <!-- <div class="important-text-box yellow">A notice that clients have to know about the service / article.</div> -->

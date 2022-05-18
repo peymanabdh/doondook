@@ -19,11 +19,9 @@
             <div class="card">
                 <div class="contact-form-box">
                     <div class="description-title">
-                        <?php $contact_us_icon=get_post_meta(get_the_ID(),'contact_form_icon',true); ?>
                         <div class="description-title-image" style="background-image: url(<?php echo $contact_us_icon; ?>);"></div>
                         <div class="description-title-text">
-                        <?php $contact_us_title=get_post_meta(get_the_ID(),'contact_form_title',true); ?>
-                            <h2><?php echo $contact_us_title; ?></h2>
+                            <h2>Contact us to get the license</h2>
                         </div>
                     </div>
                     <div class="contact-form">

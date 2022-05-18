@@ -337,6 +337,17 @@ endif;
     }
     add_shortcode( 'contact_us_title_icon', 'contact_us_title_icon' );
 
+    function custom_shorter_string1($attr,$content){
+        
+        $args = shortcode_atts( array(
+            'count' => '',
+        ), $attr );
+        $output=preg_replace('/\s+?(\S+)?$/', '', substr($content, 0, $args['count']));
+        return $output;
+                
+    }
+    add_shortcode( 'custom_shorter_string', 'custom_shorter_string1' );
+
 /////////////////////////////////////////////////////////////////////////////woocammerce remove sidebar
 
 add_action( 'wp', 'bbloomer_remove_sidebar_product_pages' );
@@ -389,3 +400,11 @@ remove_action( 'woocommerce_before_main_content', 'woocommerce_breadcrumb', 20, 
 //     echo '</pre>';
 // }
 /////////////////////////////////////////////////////////////////////////
+
+function custom_shorter_string($string)
+{
+    $truncated=preg_replace('/\s+?(\S+)?$/', '', substr($string, 0, 10));
+    // $truncated = substr($string,0,strpos($string,' ',5));
+    return $truncated;
+}
+add_action( 'init', 'custom_shorter_string' );
