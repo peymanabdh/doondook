@@ -292,6 +292,7 @@ a {
   line-height: 16px;
   text-align: center;
   cursor: pointer;
+  display: inline-block;
 }
 @media screen and (max-width: 768px) {
   .small-btn {
@@ -546,6 +547,24 @@ body .card.pdng {
 }
 .page-wrapper-full-width .page-content {
   display: block;
+}
+.single-product-wrapper {
+  /* Track */
+  /* Handle */
+  /* Handle on hover */
+}
+.single-product-wrapper ::-webkit-scrollbar {
+  height: 4px;
+}
+.single-product-wrapper ::-webkit-scrollbar-track {
+  background: #fff;
+}
+.single-product-wrapper ::-webkit-scrollbar-thumb {
+  background: #EBEBEB;
+  border-radius: 10px;
+}
+.single-product-wrapper ::-webkit-scrollbar-thumb:hover {
+  background: #555;
 }
 .single-product-wrapper .top-slider {
   height: 468px;
@@ -1112,14 +1131,20 @@ body .card.pdng {
     padding: 22px 0 0;
   }
 }
+@media screen and (min-width: 768px) {
+  .single-product-wrapper .game-services-box .services-box {
+    display: grid;
+    grid-template-columns: auto auto;
+  }
+}
 .single-product-wrapper .game-services-box .services-box .game-single-service {
-  width: calc(50% - 44px);
+  width: calc(100% - 44px);
   display: inline-flex;
   margin-bottom: 21px;
 }
 @media screen and (max-width: 1240px) {
   .single-product-wrapper .game-services-box .services-box .game-single-service {
-    width: calc(50% - 13px);
+    width: calc(100% - 13px);
   }
 }
 @media screen and (max-width: 768px) {
@@ -1144,6 +1169,12 @@ body .card.pdng {
     width: 42px;
     height: 42px;
     margin-right: 0;
+  }
+}
+@media screen and (min-width: 768px) {
+  .single-product-wrapper .game-services-box .services-box .game-single-service .game-service {
+    display: flex;
+    flex-direction: column;
   }
 }
 .single-product-wrapper .game-services-box .services-box .game-single-service .game-service .game-service-title {
@@ -1176,6 +1207,19 @@ body .card.pdng {
 .single-product-wrapper .game-services-box .services-box .game-single-service .game-service .game-service-btns {
   text-align: right;
 }
+@media screen and (min-width: 768px) {
+  .single-product-wrapper .game-services-box .services-box .game-single-service .game-service .game-service-btns {
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    flex-grow: 1;
+  }
+}
+@media screen and (min-width: 1240px) {
+  .single-product-wrapper .game-services-box .services-box .game-single-service .game-service .game-service-btns .blue {
+    margin-right: 5px;
+  }
+}
 @media screen and (max-width: 768px) {
   .single-product-wrapper .game-services-box .services-box .game-single-service .game-service .game-service-btns {
     text-align: center;
@@ -1183,9 +1227,6 @@ body .card.pdng {
 }
 .single-product-wrapper .game-services-box .services-box .game-single-service .game-service a {
   text-decoration: none;
-}
-.single-product-wrapper .game-services-box .services-box .game-single-service:nth-child(2n+1) {
-  margin-right: 82px;
 }
 @media screen and (min-width: 768px) and (max-width: 1240px) {
   .single-product-wrapper .game-services-box .services-box .game-single-service:nth-child(2n+1) {
@@ -1195,6 +1236,11 @@ body .card.pdng {
 @media screen and (max-width: 768px) {
   .single-product-wrapper .game-services-box .services-box .game-single-service:nth-child(2n+1) {
     margin-right: 0;
+  }
+}
+@media screen and (min-width: 768px) {
+  .single-product-wrapper .game-services-box .services-box .game-single-service:nth-child(2n) {
+    justify-self: flex-end;
   }
 }
 .single-product-wrapper .hr-top-similar {
@@ -1272,14 +1318,14 @@ body .card.pdng {
   text-decoration-line: line-through;
   color: #FF1313;
 }
-.contact-form-box .contact-form form {
+.contact-form-box form {
   max-width: 434px;
   margin: auto;
 }
-.contact-form-box .contact-form form > div {
+.contact-form-box form > div {
   margin-bottom: 17px;
 }
-.contact-form-box .contact-form form > div label {
+.contact-form-box form > div label {
   font-weight: normal;
   font-size: 14px;
   line-height: 17px;
@@ -1287,18 +1333,18 @@ body .card.pdng {
   display: inline-block;
 }
 @media screen and (min-width: 768px) and (max-width: 1240px) {
-  .contact-form-box .contact-form form > div label {
+  .contact-form-box form > div label {
     font-size: 18px;
     line-height: 22.5px;
   }
 }
-.contact-form-box .contact-form form > div label:after {
+.contact-form-box form > div label:after {
   content: "*";
   color: #FF1313;
   margin-left: 4px;
 }
-.contact-form-box .contact-form form > div input,
-.contact-form-box .contact-form form > div textarea {
+.contact-form-box form > div input,
+.contact-form-box form > div textarea {
   background: #F0F0F0;
   border-radius: 7px;
   width: 100%;
@@ -1309,43 +1355,46 @@ body .card.pdng {
   resize: none;
 }
 @media screen and (min-width: 768px) and (max-width: 1240px) {
-  .contact-form-box .contact-form form > div input,
-  .contact-form-box .contact-form form > div textarea {
+  .contact-form-box form > div input,
+  .contact-form-box form > div textarea {
     font-size: 18px;
     line-height: 22.5px;
     padding: 10px 16px;
   }
 }
-.contact-form-box .contact-form form > div input {
+.contact-form-box form > div input {
   height: 38px;
 }
 @media screen and (min-width: 768px) and (max-width: 1240px) {
-  .contact-form-box .contact-form form > div input {
+  .contact-form-box form > div input {
     height: 47px;
   }
 }
-.contact-form-box .contact-form form > div span.wpcf7-not-valid-tip {
+.contact-form-box form > div span.wpcf7-not-valid-tip {
   font-size: 12px;
 }
-.contact-form-box .contact-form form > div ::-webkit-input-placeholder {
+.contact-form-box form > div ::-webkit-input-placeholder {
   /* Edge */
   opacity: 0.2;
   color: #000;
 }
-.contact-form-box .contact-form form > div :-ms-input-placeholder {
+.contact-form-box form > div :-ms-input-placeholder {
   /* Internet Explorer 10-11 */
   opacity: 0.2;
   color: #000;
 }
-.contact-form-box .contact-form form > div ::placeholder {
+.contact-form-box form > div ::placeholder {
   opacity: 0.2;
   color: #000;
 }
-.contact-form-box .contact-form form .form-recaptcha {
+.contact-form-box form .g-recaptcha > div {
+  margin: auto;
+}
+.contact-form-box form .form-recaptcha {
   display: flex;
   justify-content: center;
 }
-.contact-form-box .contact-form form .wpcf7-submit {
+.contact-form-box form .wpcf7-submit {
   width: 100%;
   height: 40px;
   background: linear-gradient(270.85deg, #26B17F 0%, rgba(18, 216, 145, 0.85) 100%);
@@ -1357,11 +1406,11 @@ body .card.pdng {
   cursor: pointer;
 }
 @media screen and (min-width: 768px) and (max-width: 1240px) {
-  .contact-form-box .contact-form form .wpcf7-submit {
+  .contact-form-box form .wpcf7-submit {
     height: 48px;
   }
 }
-.contact-form-box .contact-form form > p > span:first-child {
+.contact-form-box form > p > span:first-child {
   display: inline-block;
   width: 100%;
   text-align: center;
@@ -1371,20 +1420,20 @@ body .card.pdng {
   margin-bottom: 8px;
 }
 @media screen and (min-width: 768px) and (max-width: 1240px) {
-  .contact-form-box .contact-form form > p > span:first-child {
+  .contact-form-box form > p > span:first-child {
     font-size: 18px;
     line-height: 22px;
     margin-bottom: 10px;
   }
 }
 @media screen and (max-width: 768px) {
-  .contact-form-box .contact-form form > p > span:first-child {
+  .contact-form-box form > p > span:first-child {
     font-size: 14px;
     line-height: 17px;
     margin-bottom: 7px;
   }
 }
-.contact-form-box .contact-form form .wpcf7-response-output {
+.contact-form-box form .wpcf7-response-output {
   margin: 0;
 }
 .contact-form-box .product-badges {
@@ -1668,9 +1717,9 @@ body .card.pdng {
 }
 @media screen and (min-width: 768px) and (max-width: 1240px) {
   .tablet-mobile-carousel .all-game-box {
-    height: 355px;
+    height: 363px;
     overflow: hidden;
-    padding: 0 20px;
+    padding: 4px 20px;
   }
 }
 @media screen and (max-width: 768px) {
@@ -1682,7 +1731,26 @@ body .card.pdng {
   .tablet-mobile-carousel .all-game-box .woocommerce {
     width: 100%;
     display: flex;
-    overflow: scroll;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    margin: 0 -10px;
+    padding: 0 10px;
+    /* Track */
+    /* Handle */
+    /* Handle on hover */
+  }
+  .tablet-mobile-carousel .all-game-box .woocommerce ::-webkit-scrollbar {
+    height: 4px;
+  }
+  .tablet-mobile-carousel .all-game-box .woocommerce ::-webkit-scrollbar-track {
+    background: #fff;
+  }
+  .tablet-mobile-carousel .all-game-box .woocommerce ::-webkit-scrollbar-thumb {
+    background: #EBEBEB;
+    border-radius: 10px;
+  }
+  .tablet-mobile-carousel .all-game-box .woocommerce ::-webkit-scrollbar-thumb:hover {
+    background: #555;
   }
 }
 @media screen and (min-width: 768px) and (max-width: 1240px) {
@@ -1712,6 +1780,8 @@ body .card.pdng {
   .tablet-mobile-carousel .single-loop-game .ribbon {
     width: 75px;
     height: 75px;
+    top: -4px;
+    right: -4px;
   }
   .tablet-mobile-carousel .single-loop-game .image {
     width: 214px;
@@ -1732,6 +1802,9 @@ body .card.pdng {
     height: 52px;
   }
 }
+.page > h1 {
+  margin-bottom: 13px;
+}
 .page .page-content .main-content .card {
   padding: 40px;
   font-size: 18px;
@@ -1744,6 +1817,16 @@ body .card.pdng {
     padding: 30px;
     margin-bottom: 12px;
   }
+}
+.page .page-content .main-content .card .aligncenter {
+  text-align: center;
+  clear: both;
+  display: block;
+  margin: auto;
+}
+.page .page-content .main-content .card ul,
+.page .page-content .main-content .card ol {
+  padding-left: 18px;
 }
 .service-faq {
   min-height: 300px;
@@ -1834,11 +1917,11 @@ body .card.pdng {
 }
 .service-faq .faq-box .single-faq.close .text-box .answer {
   max-height: 0;
-  transition: max-height 0.35s ease;
+  transition: max-height 0.7s ease;
 }
 .service-faq .faq-box .single-faq.close .text-box .answer p {
   margin-top: 0;
-  transition: margin-top 0.35s ease;
+  transition: margin-top 0.7s ease;
   transition-delay: 0.4s;
   -o-transition-delay: 0.4s;
   -moz-transition-delay: 0.4s;
@@ -1855,7 +1938,7 @@ body .card.pdng {
 .service-faq .faq-box .single-faq.open .text-box .answer {
   height: auto;
   max-height: 500px;
-  transition: max-height 0.35s ease;
+  transition: max-height 0.7s ease;
 }
 .service-faq .faq-box .single-faq:last-child .text-box {
   border-bottom: initial;
@@ -2044,7 +2127,7 @@ html body .pum .pum-container .pum-close {
 }
 @media screen and (max-width: 1240px) {
   .home-page-services-box {
-    height: 694px;
+    height: auto;
     max-width: calc(100% - 40px);
     margin: 0 auto 48px;
   }
@@ -2110,6 +2193,14 @@ html body .pum .pum-container .pum-close {
   font-size: 22px;
   line-height: 28px;
   margin-bottom: 15px;
+}
+@media screen and (min-width: 1240px) {
+  .home-page-services-box .home-services-container .service .service-title {
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
 }
 @media screen and (max-width: 768px) {
   .home-page-services-box .home-services-container .service .service-title {
@@ -2400,7 +2491,7 @@ html body .pum .pum-container .pum-close {
 @media screen and (max-width: 768px) {
   .customer-comment-box {
     width: calc(100% - 20px);
-    margin: 0 10px 12px;
+    margin: 0 10px 55px;
     height: 309px;
   }
 }
@@ -2557,7 +2648,7 @@ html body .pum .pum-container .pum-close {
 }
 @media screen and (max-width: 768px) {
   .archive-product-wrapper .archive-description-box {
-    padding: 18px 12px;
+    padding: 18px 24px;
     width: calc(100% - 20px);
     margin: 15px 10px 34px;
   }
@@ -2889,6 +2980,24 @@ footer .footer-bottom .footer-bottom-copyright {
     display: none !important;
   }
 }
+.horizontal-scroll {
+  /* Track */
+  /* Handle */
+  /* Handle on hover */
+}
+.horizontal-scroll ::-webkit-scrollbar {
+  height: 4px;
+}
+.horizontal-scroll ::-webkit-scrollbar-track {
+  background: #fff;
+}
+.horizontal-scroll ::-webkit-scrollbar-thumb {
+  background: #EBEBEB;
+  border-radius: 10px;
+}
+.horizontal-scroll ::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
 html.pum-open.pum-open-overlay.pum-open-scrollable body > [aria-hidden] {
   padding-right: 15PX;
 }
@@ -3118,4 +3227,19 @@ html.pum-open.pum-open-overlay.pum-open-scrollable body > [aria-hidden] {
 .owl-theme .owl-dots .owl-dot.active span,
 .owl-theme .owl-dots .owl-dot:hover span {
   background: #869791;
+}
+html.pum-open.pum-open-overlay.pum-open-scrollable body > [aria-hidden] {
+  padding-right: 0 !important;
+}
+div#popmake-11359 {
+  padding: 42px 14px 0;
+}
+body .card.pdng {
+  margin-top: 17px;
+  padding: 17px;
+}
+@media screen and (max-width: 768px) {
+  body .card.pdng {
+    margin-top: 12px;
+  }
 }
