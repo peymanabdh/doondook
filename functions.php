@@ -2,6 +2,9 @@
 require_once 'inc/cmb2metabox.php';
 require_once 'inc/cmb2Themoption.php';
 require_once 'inc/cmb2Servicesmetabox.php';
+require_once 'inc/clientStoryMetabox.php';
+
+
 function doondook_setup_theme(){
     add_theme_support('title-tag');
     add_theme_support('automatic-feed-links');
@@ -73,7 +76,7 @@ function foobar_func($content){
     // add_filter( 'the_content', 'wpb_last_updated_date' );
 }
 add_shortcode( 'popupDate', 'foobar_func' );
-/////////////////////////////////////////////post type services
+/////////////////////////////////////////////                      post types services and client side
 function doondook_cs_post_type() {
     $labels = array(
         'name'                  => __( 'post type services' ),
@@ -112,8 +115,47 @@ function doondook_cs_post_type() {
 }
 
 add_action( 'init', 'doondook_cs_post_type' );
+//client story
+function doondook_client_story_post_type() {
+    $labels = array(
+        'name'                  => __( 'client story' ),
+        'singular_name'         => __( 'client story' ),
+        'menu_name'             => __( 'client story' ),
+        'name_admin_bar'        => __( 'client story' ),
+        'add_new'               => __( 'add client' ),
+        'add_new_item'          => __( 'add client' ),
+        'new_item'              => __( 'new client post' ),
+        'edit_item'             => __( 'edit client' ),
+        'view_item'             => __( 'view client' ),
+        'all_items'             => __( 'all clients' ),
+        'search_items'          => __( 'serch in clients' ),
+        'parent_item_colon'     => __( 'parent' ),
+        'not_found'             => __( 'not fond'),
+        'not_found_in_trash'    => __( 'No clients found in Trash' ),
+    );
 
-/////////////////////////////////////////////////////////////////////////////////// Add new taxonomy
+    $args = array(
+        'labels'             => $labels,
+        'public'             => true,
+        'publicly_queryable' => true,
+        'show_ui'            => true,
+        'show_in_menu'       => true,
+        'query_var'          => true,
+//        'rewrite'            => array( 'slug' => 'book' ),
+        'capability_type'    => 'post',
+        'has_archive'        => true,
+        'hierarchical'       => false,
+        'menu_position'      => null,
+        'taxonomies'=>array('post_tag'),
+        'supports'           => array( 'title', 'editor', 'author', 'thumbnail', 'excerpt', 'comments' ),
+    );
+
+    register_post_type( 'client', $args );
+}
+
+add_action( 'init', 'doondook_client_story_post_type' );
+
+/////////////////////////////////////////////////////////                       Add new taxonomys
 function wpdocs_create_service_taxonomies() {
     // Add new taxonomy, make it hierarchical (like categories)
     $labels = array(
@@ -144,7 +186,43 @@ function wpdocs_create_service_taxonomies() {
 }
 // hook into the init action and call create_book_taxonomies when it fires
 add_action( 'init', 'wpdocs_create_service_taxonomies', 0 );
-///////////////////////////////////////////////////////////////////////////service choose
+
+//client story taxonomy
+function wpdocs_create_client_taxonomies() {
+    // Add new taxonomy, make it hierarchical (like categories)
+    $labels = array(
+        'name'              => __( 'category', 'category' ),
+        'singular_name'     => __( 'post category', 'category' ),
+        'search_items'      => __( 'serch' ),
+        'all_items'         => __( 'all category' ),
+        'parent_item'       => __( 'sub category' ),
+        'parent_item_colon' => __( 'Parent Genre:'),
+        'edit_item'         => __( 'edit category' ),
+        'update_item'       => __( 'update category' ),
+        'add_new_item'      => __( 'add new category' ),
+        'new_item_name'     => __( ' new category name' ),
+        'menu_name'         => __( 'category' ),
+    );
+
+    $argss = array(
+        'hierarchical'          => true,
+        'labels'                => $labels,
+        'show_ui'               => true,
+        'show_admin_column'     => true,
+        'update_count_callback' => '_update_post_term_count',
+        'query_var'             => true,
+//        'rewrite'               => array( 'slug' => 'writer' ),
+    );
+
+    register_taxonomy( 'client_doondook_shop', 'client', $argss );
+}
+// hook into the init action and call create_book_taxonomies when it fires
+add_action( 'init', 'wpdocs_create_client_taxonomies', 0 );
+
+
+
+
+///////////////////////////////////////////////////////////////////////////               service choose
 if( function_exists('acf_add_options_page') ) {
 	
 	acf_add_options_page(array(
@@ -347,6 +425,18 @@ endif;
                 
     }
     add_shortcode( 'custom_shorter_string', 'custom_shorter_string1' );
+
+    function table_of_content($attr,$content){
+        
+        $args = shortcode_atts( array(
+            'content' => '',
+        ), $attr );
+        // $output = '<div class="important-text-box green"></div>';
+        $output= '<div class="table_of_content"><p>Table of Contents:</p><div id="toc"></div></div>';
+        return $output;
+                
+    }
+    add_shortcode( 'table_content', 'table_of_content' );
 
 /////////////////////////////////////////////////////////////////////////////woocammerce remove sidebar
 

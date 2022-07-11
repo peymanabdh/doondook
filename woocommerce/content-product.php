@@ -39,7 +39,7 @@ if ( empty( $product ) || ! $product->is_visible() ) {
 			<!-- ribbon premium best-seller -->
 			<div class="ribbon <?php if ($manufacturer_name == 'best-seller'){echo "best-seller";} elseif($manufacturer_name == 'premium'){ echo "premium";} ?>"></div>
 	
-			<div class="image" style="background-image: url('<?php echo get_the_post_thumbnail_url() ?>')"></div>
+			<div class="image" style="background-image: url('<?php echo get_the_post_thumbnail_url($address_post_id,'tv_larg'); ?>')"></div>
 			<div class="related-content">
 				<h3><?php the_title(); ?></h3>
 				<p><?php echo strip_tags(get_the_content()); ?></p>

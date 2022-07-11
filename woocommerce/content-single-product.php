@@ -411,11 +411,11 @@ $variations = [];
             <?php wc_get_template_part( 'content', 'product' ) ?>
             
             
-	<?php 
-	endwhile;
-    wp_reset_postdata();
-	endif;
-	?>
+        <?php 
+        endwhile;
+        wp_reset_postdata();
+        endif;
+        ?>
 
 
         </div>

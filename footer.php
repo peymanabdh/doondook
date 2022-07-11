@@ -103,5 +103,6 @@
 </footer>
         <?php wp_footer(); ?>
         <script src="<?php echo theme_uri('assets/javascript/script.js') ?>"></script>
+         <script src="<?php echo theme_uri('assets/javascript/jquery.toc.min.js') ?>"></script>
     </body>
 </html>
