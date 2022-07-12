@@ -1352,6 +1352,7 @@ body .card.pdng {
   line-height: 17px;
   padding: 8px 12px;
   resize: none;
+  height: 103px;
 }
 @media screen and (min-width: 768px) and (max-width: 1240px) {
   .contact-form-box form > div input,
@@ -3361,7 +3362,6 @@ body .card.pdng {
   background-repeat: no-repeat;
   width: 833px;
   height: 468px;
-  margin-bottom: 2px;
   margin-right: 17px;
 }
 @media screen and (max-width: 768px) {
@@ -3583,6 +3583,57 @@ body .card.pdng {
 }
 .page-content .client-story-main-content .card-story div#ez-toc-container {
   display: none !important;
+}
+.page-content .client-story-main-content .main-back-image-about {
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 833px;
+  height: 281px;
+  margin-right: 17px;
+}
+@media screen and (max-width: 768px) {
+  .page-content .client-story-main-content .main-back-image-about {
+    background-size: cover !important;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 100% !important;
+    height: 280px !important;
+  }
+}
+@media screen and (min-width: 768px) and (max-width: 1240px) {
+  .page-content .client-story-main-content .main-back-image-about {
+    width: calc(100% - 40px);
+    height: 248px !important;
+    margin: auto;
+  }
+}
+.page-content .client-story-main-content .main-back-image-about .gb-story-content {
+  width: 754px;
+  height: 69px;
+  background: rgba(255, 255, 255, 0.83);
+  border-radius: 7px;
+  margin: 175px 40px;
+  position: absolute;
+}
+@media screen and (min-width: 768px) and (max-width: 1240px) {
+  .page-content .client-story-main-content .main-back-image-about .gb-story-content {
+    width: 648px;
+    height: 69px;
+    margin: 148px 42px;
+  }
+}
+@media screen and (max-width: 768px) {
+  .page-content .client-story-main-content .main-back-image-about .gb-story-content {
+    width: calc(100% - 20px) !important;
+    margin: 179px 10px !important;
+  }
+}
+.page-content .client-story-main-content .main-back-image-about .gb-story-content h1 {
+  margin: 8px 16px;
+  font-size: 40px;
+  font-weight: 800;
+  color: #282828;
 }
 @media screen and (min-width: 768px) and (max-width: 1240px) {
   .page-content .sidebar-content {

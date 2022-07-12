@@ -1293,6 +1293,7 @@ body{
                     line-height: 17px;
                     padding: 8px 12px;
                     resize: none;
+                    height: 103px;
                     @media screen and (min-width: @tablet_size) and (max-width: @desktop_size) {
                         font-size: 18px;
                         line-height: 22.5px;
@@ -2958,7 +2959,7 @@ body{
             background-repeat: no-repeat;
             width: 833px;
             height: 468px;
-            margin-bottom: 2px;
+            // margin-bottom: 2px;
             margin-right: 17px;
             @media screen and (max-width:@tablet_size){
                 background-size: cover !important;
@@ -3053,12 +3054,12 @@ body{
                    display: none !important;
                 }
             }    
-                @media screen and (min-width:@tablet_size) and (max-width:@desktop_size) {
+            @media screen and (min-width:@tablet_size) and (max-width:@desktop_size) {
                     width: calc(100% - 40px);
                     height: 410px !important;
                     margin: auto;
-                }
             }
+        }
         .card-story{
                 width: 833px;
                 padding: 40px;
@@ -3162,7 +3163,53 @@ body{
                 div#ez-toc-container {
                    display: none !important;
                   }
-            }   
+            } 
+        .main-back-image-about{
+            background-size: contain;
+            background-position: center;
+            background-repeat: no-repeat;
+            width: 833px;
+            height: 281px;
+            // margin-bottom: 2px;
+            margin-right: 17px;
+            @media screen and (max-width:@tablet_size){
+                background-size: cover !important;
+                background-position: center;
+                background-repeat: no-repeat;
+                width: 100% !important;
+                height: 280px !important;
+            } 
+            @media screen and (min-width:@tablet_size) and (max-width:@desktop_size) {
+                width: calc(100% - 40px);
+                height: 248px !important;
+                margin: auto;
+            }
+            .gb-story-content{
+                width: 754px;
+                height: 69px;
+                background: rgba(255, 255, 255, 0.83);
+                border-radius: 7px;
+                margin: 175px 40px;
+                position: absolute;
+                @media screen and (min-width:@tablet_size) and (max-width:@desktop_size) {
+                    width: 648px;
+                    height: 69px;
+                    margin: 148px 42px;
+                }
+                @media screen and (max-width:@tablet_size) {
+                    width: calc(100% - 20px) !important;
+                    margin: 179px 10px !important;
+                    // position: absolute;
+                }
+                h1{
+                    margin: 8px 16px;
+                    font-size: 40px;
+                    font-weight: 800;
+                    color: #282828;
+                }
+                
+                }
+        }  
             
     }
     .sidebar-content{
