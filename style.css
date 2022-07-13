@@ -3799,3 +3799,102 @@ body .card.pdng {
     margin-left: 21px;
   }
 }
+.about-owl-box {
+  width: 750px;
+  height: 333px;
+  margin: 20px 0;
+}
+@media screen and (max-width: 1240px) {
+  .about-owl-box {
+    width: 99%;
+    height: 335px;
+  }
+}
+@media screen and (max-width: 768px) {
+  .about-owl-box {
+    width: 100%;
+    height: 309px;
+  }
+}
+@media screen and (max-width: 1240px) {
+  .about-owl-box .owl-stage-outer {
+    width: 100%;
+  }
+}
+.about-owl-box .owl-item {
+  top: -15px;
+}
+.about-owl-box .owl-dots {
+  display: block;
+}
+.about-owl-box .about-owl-box-images {
+  width: 140px;
+  height: 294px;
+  display: flex;
+  margin-top: 17px;
+  margin-right: 0;
+  flex-direction: column;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+@media screen and (max-width: 1240px) {
+  .about-owl-box .about-owl-box-images {
+    width: 120px;
+    height: 289px;
+  }
+}
+@media screen and (max-width: 768px) {
+  .about-owl-box .about-owl-box-images {
+    width: 110px;
+    height: 294px;
+  }
+}
+.about-owl-box .about-owl-box-images .comment-section {
+  width: calc(100% - 40);
+  display: flex;
+  align-items: center;
+}
+@media screen and (max-width: 1240px) {
+  .about-owl-box .about-owl-box-images .comment-section {
+    width: calc(100% - 40);
+  }
+}
+@media screen and (max-width: 768px) {
+  .about-owl-box .about-owl-box-images .comment-section {
+    width: calc(100% - 40);
+  }
+}
+.about-owl-box .about-owl-box-images .comment-section div {
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 12px;
+  text-align: center;
+  color: #FFFFFF;
+  margin-top: 245px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.about-owl-box .about-owl-box-images .comment-section div span {
+  display: block;
+  color: #FFFFFF;
+  line-height: 15px;
+}
+.about-owl-box .about-owl-box-images .comment-section p {
+  font-weight: 300;
+  font-size: 16px;
+  line-height: 20px;
+  text-align: justify;
+}
+@media screen and (max-width: 1240px) {
+  .about-owl-box .about-owl-box-images .comment-section p {
+    font-size: 15px;
+    line-height: 19px;
+  }
+}
+@media screen and (max-width: 768px) {
+  .about-owl-box .about-owl-box-images .comment-section p {
+    font-size: 14px;
+    line-height: 17.5px;
+  }
+}
